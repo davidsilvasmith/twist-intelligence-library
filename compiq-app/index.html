@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CompIQ — Know if you're underpaid</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="top">
+    <h1>CompIQ</h1>
+    <a class="btn" href="#upload">Get your benchmark</a>
+  </header>
+
+  <section class="hero">
+    <h2>Find out if you're underpaid in 2 minutes.</h2>
+    <p>Upload your LinkedIn PDF. Get your compensation benchmark + raise strategy.</p>
+    <div class="chips">
+      <span>Personal benchmark</span><span>Negotiation plan</span><span>No guesswork</span>
+    </div>
+  </section>
+
+  <section class="how">
+    <h3>How it works</h3>
+    <ol>
+      <li>Export your LinkedIn profile as PDF</li>
+      <li>Upload it below + fill 4 context fields</li>
+      <li>Get estimated market range + pay gap</li>
+      <li>Unlock full report + raise script</li>
+    </ol>
+  </section>
+
+  <section id="upload" class="card">
+    <h3>Upload your profile</h3>
+    <input type="file" id="pdf" accept="application/pdf" />
+    <input id="location" placeholder="Location (e.g., Detroit, MI)" />
+    <input id="role" placeholder="Target role (e.g., Senior Engineer)" />
+    <input id="years" placeholder="Years of experience" />
+    <input id="comp" placeholder="Current total comp (optional)" />
+    <button id="analyze">Analyze my comp</button>
+    <div id="result"></div>
+  </section>
+
+  <section class="pricing">
+    <h3>Pricing</h3>
+    <p><strong>$99</strong> CompIQ Early Access benchmark report</p>
+    <p><strong>$149</strong> Raise Plan Pro upsell (coaching + scripts)</p>
+    <a class="btn" href="https://buy.stripe.com/YOUR_COMPIQ_LINK" target="_blank" rel="noopener">Buy now — $99</a>
+    <p class="tiny">Secure checkout via Stripe.</p>
+  </section>
+
+  <footer>
+    <p>Estimate only. Not legal, tax, or financial advice.</p>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

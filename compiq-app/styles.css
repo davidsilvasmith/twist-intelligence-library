@@ -1,0 +1,10 @@
+body{font-family:Inter,Arial,sans-serif;max-width:860px;margin:0 auto;padding:24px;background:#0f172a;color:#e2e8f0}
+.top{display:flex;justify-content:space-between;align-items:center}
+h1,h2,h3{margin:8px 0}
+.hero,.how,.card,.pricing{background:#111827;border:1px solid #334155;border-radius:12px;padding:18px;margin:16px 0}
+input,button{display:block;width:100%;margin:8px 0;padding:10px;border-radius:8px;border:1px solid #475569;background:#0b1220;color:#e2e8f0}
+button,.btn{background:#2563eb;color:#fff;border:none;padding:10px 14px;border-radius:8px;text-decoration:none;display:inline-block}
+.chips span{display:inline-block;background:#1e293b;padding:6px 10px;margin-right:8px;border-radius:999px;font-size:12px}
+#result{margin-top:10px;padding:10px;background:#0b1220;border-radius:8px}
+.tiny{opacity:.8;font-size:12px;margin-top:8px}
+footer{opacity:.8;font-size:12px;margin-top:20px}
