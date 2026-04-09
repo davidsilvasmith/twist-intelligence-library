@@ -3,10 +3,10 @@
     {
       "episode": "E2273",
       "title": "Anthropic\u2019s Mythos is a cyber-weapon, so you can\u2019t have it",
-      "headline": "Anthropic Mythos, cyber-weapon risk, and Neurometric\u2019s inference thesis",
+      "headline": "Project Glasswing, Anthropic Mythos, and inference-time compute as the new moat",
       "youtube_url": "https://www.youtube.com/watch?v=1ORdeSPOy2k",
       "thumbnail": "https://i.ytimg.com/vi/1ORdeSPOy2k/hqdefault.jpg",
-      "delta_label": "Neurometric",
+      "delta_label": "Neurometric / Project Glasswing",
       "delta_then": "Stealth / early launch",
       "delta_now": "Active AI inference platform",
       "delta_percent": "+N/A",
@@ -14,14 +14,14 @@
       "topics": [
         "AI",
         "Cybersecurity",
-        "Inference",
-        "Enterprise"
+        "Inference-Time Compute",
+        "Applied AI"
       ]
     },
     {
       "episode": "E2272",
       "title": "3 AI Agents That Actually Replaced Human Jobs",
-      "headline": "OpenClaw subscription shock and Ryan Carson\u2019s ClawChief workflow demo",
+      "headline": "$2,000/month AI subscriptions and the real economics of agent workflows",
       "youtube_url": "",
       "thumbnail": "",
       "delta_label": "ClawChief",
@@ -31,15 +31,15 @@
       "sparkline_path": "M0,36 L20,32 L40,24 L60,15 L80,10 L100,4",
       "topics": [
         "AI Agents",
-        "Workflow",
+        "Pricing",
         "Automation",
-        "Costs"
+        "Applied AI"
       ]
     },
     {
       "episode": "E2271",
       "title": "AI Rebuilt Every YC W26 Startup. Should Founders Be Scared?",
-      "headline": "Boardy, YC cloning pressure, and the opinions-vs-data founder test",
+      "headline": "Boardy, $17M traction, and Jason's shift from AI vibes to tabular rigor",
       "youtube_url": "https://www.youtube.com/watch?v=g5LxEPGLDsc",
       "thumbnail": "https://i.ytimg.com/vi/g5LxEPGLDsc/hqdefault.jpg",
       "delta_label": "Boardy",
@@ -61,52 +61,52 @@
       "role": "Founder",
       "company": "Boardy",
       "then_label": "Boardy launched as AI superconnector",
-      "now_label": "$8M seed reported Jan 14, 2025 via TechCrunch, led by Creandum",
+      "now_label": "$17M funding narrative, founder framed against tabular-data rigor",
       "delta_percent": "+institutional validation",
       "metric_type": "funding",
-      "intervention_note": "Narrative shifted from AI novelty to capital-backed network product.",
+      "intervention_note": "Jason's filter shifts from AI vibes to measurable tabular-data proof.",
       "episode": "E2271",
       "image": "",
-      "verification": "Upstarts + TechCrunch reporting"
+      "verification": "user-provided truth audit"
     },
     {
       "founder": "Rob May",
       "role": "CEO",
       "company": "Neurometric",
       "then_label": "Publicly framing inference cost as the core enterprise AI bottleneck",
-      "now_label": "Neurometric positioned as inference optimization / routing platform; Rob also MD at HalfCourt Ventures",
+      "now_label": "Rob May thesis: inference-time compute is the new moat",
       "delta_percent": "+systems-layer credibility",
       "metric_type": "positioning",
-      "intervention_note": "Moat thesis is moving from models to the system-of-context layer.",
+      "intervention_note": "The edge shifts from training spectacle to inference-time systems advantage.",
       "episode": "E2273",
       "image": "",
-      "verification": "Unite.AI interview"
+      "verification": "user-provided truth audit"
     },
     {
       "founder": "Ryan Carson",
       "role": "Founder",
       "company": "ClawChief",
       "then_label": "Agent workflow demo in E2272",
-      "now_label": "v2 described publicly as adding source-of-truth layer, orchestration, and meeting-note ingestion",
+      "now_label": "Agent economics framed around roughly $2,000/month AI subscription burden",
       "delta_percent": "+product maturity",
       "metric_type": "product",
-      "intervention_note": "The market is rewarding operational wrappers, not generic chat fronts.",
+      "intervention_note": "The business lives or dies on whether workflow value exceeds model spend.",
       "episode": "E2272",
       "image": "",
-      "verification": "The Neuron digest"
+      "verification": "user-provided truth audit"
     },
     {
       "founder": "Victor Riparbelli",
       "role": "CEO",
       "company": "Synthesia",
       "then_label": "AI video founder in category-building phase",
-      "now_label": "Synthesia raised a $180M round at a $2.1B valuation in Jan 2025 with NEA backing and existing investors including GV",
+      "now_label": "$4B valuation / $200M Series E led by GV",
       "delta_percent": "+scale validated",
       "metric_type": "valuation",
-      "intervention_note": "Proof that enterprise AI media can become a durable software category.",
+      "intervention_note": "Applied AI category winners compound by owning workflow outcomes, not general intelligence.",
       "episode": "contextual",
       "image": "",
-      "verification": "widely reported funding round"
+      "verification": "user-provided truth audit"
     }
   ],
   "constellation_nodes": [
@@ -129,7 +129,8 @@
       "company": "Boardy",
       "connected_to": [
         "Jason Calacanis",
-        "Creandum"
+        "Creandum",
+        "Synthesia"
       ],
       "x": 150,
       "y": 100,
@@ -165,7 +166,8 @@
       "company": "Creandum",
       "connected_to": [
         "Andrew D'Souza",
-        "Boardy"
+        "Boardy",
+        "Applied AI"
       ],
       "x": 650,
       "y": 100,
@@ -182,6 +184,30 @@
       "x": 520,
       "y": 80,
       "active": true
+    },
+    {
+      "label": "GV",
+      "type": "vc",
+      "company": "Google Ventures",
+      "connected_to": [
+        "Synthesia",
+        "Applied AI"
+      ],
+      "x": 560,
+      "y": 120,
+      "active": true
+    },
+    {
+      "label": "Synthesia",
+      "type": "company",
+      "company": "Synthesia",
+      "connected_to": [
+        "GV",
+        "Andrew D'Souza"
+      ],
+      "x": 700,
+      "y": 240,
+      "active": true
     }
   ],
   "the_misses": [
@@ -191,9 +217,9 @@
       "status": "MAJOR MISS",
       "at_the_time": "Regulatory risk and belief that black-car demand was niche",
       "miss_delta": "12,500x",
-      "logic_then": "The service looked boxed in by taxi regulation and a seemingly small premium transport market.",
-      "reality_now": "Uber expanded the market by making point-to-point transport dramatically easier, faster, and more available than taxis.",
-      "lesson": "Do not size disruptive markets by the old category's footprint."
+      "logic_then": "Jason's original pass centered on regulatory risk and the belief that the market would stay trapped inside legacy transport constraints.",
+      "reality_now": "Software created the trust layer and demand liquidity that let Uber break out of the old regulated category frame.",
+      "lesson": "When software becomes the trust and coordination layer, regulatory fear can hide category expansion."
     },
     {
       "company": "Airbnb",
@@ -208,7 +234,7 @@
   ],
   "masterclass_featured": {
     "episode": "E2273",
-    "title": "Anthropic\u2019s Mythos is a cyber-weapon, so you can\u2019t have it",
+    "title": "Anthropic\u2019s Mythos, Project Glasswing, and the inference-time compute moat",
     "topics": [
       "AI",
       "Cybersecurity",
@@ -220,30 +246,30 @@
   },
   "masterclass_sidebar_formulas": [
     {
-      "label": "Opinions vs. Data",
-      "formula": "Strong opinions are useful only if they cash out in measured outcomes."
+      "label": "Barksdale Filter",
+      "formula": "Move from AI vibes to tabular-data rigor. Strong opinions only matter when backed by measured outcomes."
     },
     {
-      "label": "Inference Cost Rule",
-      "formula": "If your AI product cannot compress inference cost, it is renting growth not owning it."
+      "label": "Subscription Reality",
+      "formula": "If the agent stack costs $2,000/month, it must eliminate more than $2,000/month of real work."
     },
     {
-      "label": "Agent Value Test",
-      "formula": "An AI agent matters only when it removes actual headcount or workflow load."
+      "label": "Inference-Time Moat",
+      "formula": "In applied AI, inference-time compute and routing may be more defensible than raw model training."
     }
   ],
   "masterclass_sidebar_insights": [
     {
-      "title": "Mythos as strategic threat surface",
-      "body": "The episode frames frontier model access as a geopolitical and cyber risk, not a normal SaaS feature launch."
+      "title": "E2271, rigor over vibes",
+      "body": "Jason frames the next phase of AI company analysis around tabular evidence, not charismatic demos."
     },
     {
-      "title": "OpenClaw subsidy era is over",
-      "body": "E2272 centers the transition from subsidized model access to explicit operating economics for agent builders."
+      "title": "E2272, the $2,000/month test",
+      "body": "Alex Finn's pricing thesis turns agent adoption into a hard operating-economics conversation."
     },
     {
-      "title": "Boardy and the Barksdale filter",
-      "body": "E2271 sharpens the founder test: narrative is cheap, data-backed product behavior is what compounds."
+      "title": "E2273, Project Glasswing",
+      "body": "The real debate is not just model power. It is whether inference-time systems become the durable moat."
     }
   ]
 }

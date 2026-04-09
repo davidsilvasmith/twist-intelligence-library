@@ -3,22 +3,17 @@ episode: E2272
 title: "3 AI Agents That Actually Replaced Human Jobs"
 youtube_url: ""
 thumbnail: ""
-topics: ["AI Agents", "Automation", "Workflow Economics"]
-status: focused_v1
+topics: ["AI Agents", "Pricing", "Workflow Economics"]
+status: truth_audited_v2
 ---
 
 # E2272 - 3 AI Agents That Actually Replaced Human Jobs
 
 ## 5-minute masterclass
-The episode matters because it shifts the AI conversation away from toy demos and into labor substitution. The news hook is the OpenClaw subscription cut, which forces every builder in the ecosystem to confront real model costs. That is healthy. It kills fake margin and exposes whether a product actually removes work.
+This episode hardens the economics conversation around agent software. Alex Finn's key thesis is the $2,000 per month subscription reality: if an AI workflow stack costs that much, it needs to retire more than that amount of recurring labor or management load. Otherwise it is a toy with a burn rate.
 
-Ryan Carson's ClawChief demo is the practical center of gravity. The lesson is simple: the winning agent product is not a chatbot with a skin. It is a workflow control system with priorities, state, and a reliable source of truth. When subsidies disappear, fluff dies and operator-grade systems survive.
-
-## Focus notes
-- OpenClaw subscription changes reset the economics for third-party agent tools
-- Ryan Carson / ClawChief demonstrates operator-layer workflow automation
-- Real test: did the agent replace work, not just create novelty
+Ryan Carson's ClawChief demo matters because it points toward operator-grade workflow control, not generic chatbot novelty. The test is simple: did the product remove work, or did it just create a flashy interface for more work to manage?
 
 ## The Formula
-- An agent is only valuable if it removes recurring human workload
-- If your gross margin depends on subsidized model access, you do not have a business yet
+- If the stack costs $2,000/month, it must remove more than $2,000/month of real work
+- Agent products win on workflow replacement, not novelty
