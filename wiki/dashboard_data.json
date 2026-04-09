@@ -1,0 +1,249 @@
+{
+  "hero_episodes": [
+    {
+      "episode": "E2273",
+      "title": "Anthropic\u2019s Mythos is a cyber-weapon, so you can\u2019t have it",
+      "headline": "Anthropic Mythos, cyber-weapon risk, and Neurometric\u2019s inference thesis",
+      "youtube_url": "https://www.youtube.com/watch?v=1ORdeSPOy2k",
+      "thumbnail": "https://i.ytimg.com/vi/1ORdeSPOy2k/hqdefault.jpg",
+      "delta_label": "Neurometric",
+      "delta_then": "Stealth / early launch",
+      "delta_now": "Active AI inference platform",
+      "delta_percent": "+N/A",
+      "sparkline_path": "M0,34 Q25,30 50,22 T100,6",
+      "topics": [
+        "AI",
+        "Cybersecurity",
+        "Inference",
+        "Enterprise"
+      ]
+    },
+    {
+      "episode": "E2272",
+      "title": "3 AI Agents That Actually Replaced Human Jobs",
+      "headline": "OpenClaw subscription shock and Ryan Carson\u2019s ClawChief workflow demo",
+      "youtube_url": "",
+      "thumbnail": "",
+      "delta_label": "ClawChief",
+      "delta_then": "Operator tool demo",
+      "delta_now": "v2 shipped with orchestration layer",
+      "delta_percent": "+N/A",
+      "sparkline_path": "M0,36 L20,32 L40,24 L60,15 L80,10 L100,4",
+      "topics": [
+        "AI Agents",
+        "Workflow",
+        "Automation",
+        "Costs"
+      ]
+    },
+    {
+      "episode": "E2271",
+      "title": "AI Rebuilt Every YC W26 Startup. Should Founders Be Scared?",
+      "headline": "Boardy, YC cloning pressure, and the opinions-vs-data founder test",
+      "youtube_url": "https://www.youtube.com/watch?v=g5LxEPGLDsc",
+      "thumbnail": "https://i.ytimg.com/vi/g5LxEPGLDsc/hqdefault.jpg",
+      "delta_label": "Boardy",
+      "delta_then": "Early AI connector",
+      "delta_now": "$8M seed narrative",
+      "delta_percent": "+N/A",
+      "sparkline_path": "M0,35 Q30,34 50,18 T100,3",
+      "topics": [
+        "YC",
+        "AI",
+        "Founder strategy",
+        "Fundraising"
+      ]
+    }
+  ],
+  "trajectory_delta": [
+    {
+      "founder": "Andrew D'Souza",
+      "role": "Founder",
+      "company": "Boardy",
+      "then_label": "Boardy launched as AI superconnector",
+      "now_label": "$8M seed reported Jan 14, 2025 via TechCrunch, led by Creandum",
+      "delta_percent": "+institutional validation",
+      "metric_type": "funding",
+      "intervention_note": "Narrative shifted from AI novelty to capital-backed network product.",
+      "episode": "E2271",
+      "image": "",
+      "verification": "Upstarts + TechCrunch reporting"
+    },
+    {
+      "founder": "Rob May",
+      "role": "CEO",
+      "company": "Neurometric",
+      "then_label": "Publicly framing inference cost as the core enterprise AI bottleneck",
+      "now_label": "Neurometric positioned as inference optimization / routing platform; Rob also MD at HalfCourt Ventures",
+      "delta_percent": "+systems-layer credibility",
+      "metric_type": "positioning",
+      "intervention_note": "Moat thesis is moving from models to the system-of-context layer.",
+      "episode": "E2273",
+      "image": "",
+      "verification": "Unite.AI interview"
+    },
+    {
+      "founder": "Ryan Carson",
+      "role": "Founder",
+      "company": "ClawChief",
+      "then_label": "Agent workflow demo in E2272",
+      "now_label": "v2 described publicly as adding source-of-truth layer, orchestration, and meeting-note ingestion",
+      "delta_percent": "+product maturity",
+      "metric_type": "product",
+      "intervention_note": "The market is rewarding operational wrappers, not generic chat fronts.",
+      "episode": "E2272",
+      "image": "",
+      "verification": "The Neuron digest"
+    },
+    {
+      "founder": "Victor Riparbelli",
+      "role": "CEO",
+      "company": "Synthesia",
+      "then_label": "AI video founder in category-building phase",
+      "now_label": "Synthesia raised a $180M round at a $2.1B valuation in Jan 2025 with NEA backing and existing investors including GV",
+      "delta_percent": "+scale validated",
+      "metric_type": "valuation",
+      "intervention_note": "Proof that enterprise AI media can become a durable software category.",
+      "episode": "contextual",
+      "image": "",
+      "verification": "widely reported funding round"
+    }
+  ],
+  "constellation_nodes": [
+    {
+      "label": "Jason Calacanis",
+      "type": "host",
+      "company": "TWiST",
+      "connected_to": [
+        "Andrew D'Souza",
+        "Rob May",
+        "Ryan Carson"
+      ],
+      "x": 400,
+      "y": 225,
+      "active": true
+    },
+    {
+      "label": "Andrew D'Souza",
+      "type": "guest",
+      "company": "Boardy",
+      "connected_to": [
+        "Jason Calacanis",
+        "Creandum"
+      ],
+      "x": 150,
+      "y": 100,
+      "active": true
+    },
+    {
+      "label": "Rob May",
+      "type": "guest",
+      "company": "Neurometric",
+      "connected_to": [
+        "Jason Calacanis",
+        "HalfCourt Ventures"
+      ],
+      "x": 150,
+      "y": 350,
+      "active": true
+    },
+    {
+      "label": "Ryan Carson",
+      "type": "guest",
+      "company": "ClawChief",
+      "connected_to": [
+        "Jason Calacanis",
+        "OpenClaw ecosystem"
+      ],
+      "x": 650,
+      "y": 350,
+      "active": true
+    },
+    {
+      "label": "Creandum",
+      "type": "vc",
+      "company": "Creandum",
+      "connected_to": [
+        "Andrew D'Souza",
+        "Boardy"
+      ],
+      "x": 650,
+      "y": 100,
+      "active": true
+    },
+    {
+      "label": "NEA",
+      "type": "vc",
+      "company": "New Enterprise Associates",
+      "connected_to": [
+        "Synthesia",
+        "Victor Riparbelli"
+      ],
+      "x": 520,
+      "y": 80,
+      "active": true
+    }
+  ],
+  "the_misses": [
+    {
+      "company": "Uber",
+      "vintage": "2011",
+      "status": "MAJOR MISS",
+      "at_the_time": "Regulatory risk and belief that black-car demand was niche",
+      "miss_delta": "12,500x",
+      "logic_then": "The service looked boxed in by taxi regulation and a seemingly small premium transport market.",
+      "reality_now": "Uber expanded the market by making point-to-point transport dramatically easier, faster, and more available than taxis.",
+      "lesson": "Do not size disruptive markets by the old category's footprint."
+    },
+    {
+      "company": "Airbnb",
+      "vintage": "2009",
+      "status": "MAJOR MISS",
+      "at_the_time": "Trust, safety, and social discomfort looked fatal",
+      "miss_delta": "8,000x",
+      "logic_then": "People would not reliably sleep in strangers' homes, so mainstream adoption looked impossible.",
+      "reality_now": "Ratings, identity, and review loops created a software trust layer that unlocked global supply and demand.",
+      "lesson": "When software removes a deep human trust barrier, category size can reset upward fast."
+    }
+  ],
+  "masterclass_featured": {
+    "episode": "E2273",
+    "title": "Anthropic\u2019s Mythos is a cyber-weapon, so you can\u2019t have it",
+    "topics": [
+      "AI",
+      "Cybersecurity",
+      "Enterprise"
+    ],
+    "duration": "5:00 summary",
+    "youtube_url": "https://www.youtube.com/watch?v=1ORdeSPOy2k",
+    "thumbnail": "https://i.ytimg.com/vi/1ORdeSPOy2k/hqdefault.jpg"
+  },
+  "masterclass_sidebar_formulas": [
+    {
+      "label": "Opinions vs. Data",
+      "formula": "Strong opinions are useful only if they cash out in measured outcomes."
+    },
+    {
+      "label": "Inference Cost Rule",
+      "formula": "If your AI product cannot compress inference cost, it is renting growth not owning it."
+    },
+    {
+      "label": "Agent Value Test",
+      "formula": "An AI agent matters only when it removes actual headcount or workflow load."
+    }
+  ],
+  "masterclass_sidebar_insights": [
+    {
+      "title": "Mythos as strategic threat surface",
+      "body": "The episode frames frontier model access as a geopolitical and cyber risk, not a normal SaaS feature launch."
+    },
+    {
+      "title": "OpenClaw subsidy era is over",
+      "body": "E2272 centers the transition from subsidized model access to explicit operating economics for agent builders."
+    },
+    {
+      "title": "Boardy and the Barksdale filter",
+      "body": "E2271 sharpens the founder test: narrative is cheap, data-backed product behavior is what compounds."
+    }
+  ]
+}

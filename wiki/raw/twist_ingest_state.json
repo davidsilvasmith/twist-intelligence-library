@@ -1,0 +1,21 @@
+{
+  "nextIndex": 10,
+  "targetCount": 10,
+  "completed": [
+    "E2272",
+    "E2271",
+    "E2270",
+    "E2269",
+    "E2268",
+    "E2267",
+    "E2266",
+    "E2265",
+    "E2263"
+  ],
+  "errors": [
+    {
+      "episode": "E2273",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    }
+  ]
+}

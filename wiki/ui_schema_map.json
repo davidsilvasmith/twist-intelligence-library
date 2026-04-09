@@ -1,0 +1,89 @@
+{
+  "mapped_css_ids": [
+    "hero_episodes",
+    "constellation_nodes",
+    "trajectory_delta",
+    "the_misses",
+    "masterclass_featured",
+    "masterclass_sidebar_formulas",
+    "masterclass_sidebar_insights"
+  ],
+  "sections": {
+    "hero_episodes": {
+      "count": 3,
+      "fields": [
+        "episode",
+        "title",
+        "headline",
+        "youtube_url",
+        "thumbnail",
+        "delta_label",
+        "delta_then",
+        "delta_now",
+        "delta_percent",
+        "sparkline_path",
+        "topics"
+      ]
+    },
+    "constellation_nodes": {
+      "fields": [
+        "label",
+        "type",
+        "company",
+        "connected_to",
+        "x",
+        "y",
+        "active"
+      ]
+    },
+    "trajectory_delta": {
+      "count": 4,
+      "fields": [
+        "founder",
+        "role",
+        "company",
+        "then_label",
+        "now_label",
+        "delta_percent",
+        "metric_type",
+        "intervention_note",
+        "episode",
+        "image"
+      ]
+    },
+    "the_misses": {
+      "fields": [
+        "company",
+        "vintage",
+        "status",
+        "at_the_time",
+        "miss_delta",
+        "logic_then",
+        "reality_now",
+        "lesson"
+      ]
+    },
+    "masterclass_featured": {
+      "fields": [
+        "episode",
+        "title",
+        "topics",
+        "duration",
+        "youtube_url",
+        "thumbnail"
+      ]
+    },
+    "masterclass_sidebar_formulas": {
+      "fields": [
+        "label",
+        "formula"
+      ]
+    },
+    "masterclass_sidebar_insights": {
+      "fields": [
+        "title",
+        "body"
+      ]
+    }
+  }
+}
