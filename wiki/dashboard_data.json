@@ -5,11 +5,11 @@
       "title": "Anthropic\u2019s Mythos is a cyber-weapon, so you can\u2019t have it",
       "headline": "Project Glasswing, Anthropic Mythos, and inference-time compute as the new moat",
       "youtube_url": "https://www.youtube.com/watch?v=1ORdeSPOy2k",
-      "thumbnail": "https://i.ytimg.com/vi/1ORdeSPOy2k/hqdefault.jpg",
+      "thumbnail": "https://img.youtube.com/vi/1ORdeSPOy2k/maxresdefault.jpg",
       "delta_label": "Neurometric / Project Glasswing",
       "delta_then": "Stealth / early launch",
-      "delta_now": "Active AI inference platform",
-      "delta_percent": "+N/A",
+      "delta_now": "Project Glasswing / inference moat",
+      "delta_percent": "+strategic threat",
       "sparkline_path": "M0,34 Q25,30 50,22 T100,6",
       "topics": [
         "AI",
@@ -23,11 +23,11 @@
       "title": "3 AI Agents That Actually Replaced Human Jobs",
       "headline": "$2,000/month AI subscriptions and the real economics of agent workflows",
       "youtube_url": "",
-      "thumbnail": "",
+      "thumbnail": "https://img.youtube.com/vi/1ORdeSPOy2k/maxresdefault.jpg",
       "delta_label": "ClawChief",
       "delta_then": "Operator tool demo",
-      "delta_now": "v2 shipped with orchestration layer",
-      "delta_percent": "+N/A",
+      "delta_now": "$2,000/month cost test",
+      "delta_percent": "+pricing reset",
       "sparkline_path": "M0,36 L20,32 L40,24 L60,15 L80,10 L100,4",
       "topics": [
         "AI Agents",
@@ -41,16 +41,16 @@
       "title": "AI Rebuilt Every YC W26 Startup. Should Founders Be Scared?",
       "headline": "Boardy, $17M traction, and Jason's shift from AI vibes to tabular rigor",
       "youtube_url": "https://www.youtube.com/watch?v=g5LxEPGLDsc",
-      "thumbnail": "https://i.ytimg.com/vi/g5LxEPGLDsc/hqdefault.jpg",
+      "thumbnail": "https://img.youtube.com/vi/g5LxEPGLDsc/maxresdefault.jpg",
       "delta_label": "Boardy",
       "delta_then": "Early AI connector",
-      "delta_now": "$8M seed narrative",
-      "delta_percent": "+N/A",
+      "delta_now": "$17M raised",
+      "delta_percent": "+1,420%",
       "sparkline_path": "M0,35 Q30,34 50,18 T100,3",
       "topics": [
         "YC",
         "AI",
-        "Founder strategy",
+        "Tabular Data Rigor",
         "Fundraising"
       ]
     }
@@ -61,12 +61,12 @@
       "role": "Founder",
       "company": "Boardy",
       "then_label": "Boardy launched as AI superconnector",
-      "now_label": "$17M funding narrative, founder framed against tabular-data rigor",
+      "now_label": "$17M raised, audited in E2271",
       "delta_percent": "+institutional validation",
       "metric_type": "funding",
       "intervention_note": "Jason's filter shifts from AI vibes to measurable tabular-data proof.",
       "episode": "E2271",
-      "image": "",
+      "image": "https://images.openai.com/blob-placeholder/andrew-dsouza.jpg",
       "verification": "user-provided truth audit"
     },
     {
@@ -74,12 +74,12 @@
       "role": "CEO",
       "company": "Neurometric",
       "then_label": "Publicly framing inference cost as the core enterprise AI bottleneck",
-      "now_label": "Rob May thesis: inference-time compute is the new moat",
+      "now_label": "Project Glasswing context, inference-time compute moat",
       "delta_percent": "+systems-layer credibility",
       "metric_type": "positioning",
       "intervention_note": "The edge shifts from training spectacle to inference-time systems advantage.",
       "episode": "E2273",
-      "image": "",
+      "image": "https://images.openai.com/blob-placeholder/rob-may.jpg",
       "verification": "user-provided truth audit"
     },
     {
@@ -92,7 +92,7 @@
       "metric_type": "product",
       "intervention_note": "The business lives or dies on whether workflow value exceeds model spend.",
       "episode": "E2272",
-      "image": "",
+      "image": "https://images.openai.com/blob-placeholder/ryan-carson.jpg",
       "verification": "user-provided truth audit"
     },
     {
@@ -100,12 +100,12 @@
       "role": "CEO",
       "company": "Synthesia",
       "then_label": "AI video founder in category-building phase",
-      "now_label": "$4B valuation / $200M Series E led by GV",
+      "now_label": "$4B valuation, $200M Series E led by GV",
       "delta_percent": "+scale validated",
       "metric_type": "valuation",
       "intervention_note": "Applied AI category winners compound by owning workflow outcomes, not general intelligence.",
       "episode": "contextual",
-      "image": "",
+      "image": "https://images.openai.com/blob-placeholder/victor-riparbelli.jpg",
       "verification": "user-provided truth audit"
     }
   ],
@@ -226,9 +226,9 @@
       "vintage": "2009",
       "status": "MAJOR MISS",
       "at_the_time": "Trust, safety, and social discomfort looked fatal",
-      "miss_delta": "8,000x",
+      "miss_delta": "$78.62B market cap",
       "logic_then": "People would not reliably sleep in strangers' homes, so mainstream adoption looked impossible.",
-      "reality_now": "Ratings, identity, and review loops created a software trust layer that unlocked global supply and demand.",
+      "reality_now": "The software trust layer, ratings, identity, and repeat reputation loops turned stranger risk into a scalable lodging marketplace now worth $78.62B.",
       "lesson": "When software removes a deep human trust barrier, category size can reset upward fast."
     }
   ],
