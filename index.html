@@ -105,15 +105,15 @@
 </div>
 </div>
 <div class="flex flex-col gap-2 flex-grow">
-<a class="flex items-center gap-4 px-4 py-3 text-[#106e00] font-bold tracking-tight translate-x-2 transition-transform font-headline text-lg" href="#">
+<a class="flex items-center gap-4 px-4 py-3 text-[#106e00] font-bold tracking-tight translate-x-2 transition-transform font-headline text-lg" href="#library">
 <span class="material-symbols-outlined" data-icon="book_4">book_4</span>
 <span>Library</span>
 </a>
-<a class="flex items-center gap-4 px-4 py-3 text-stone-400 hover:bg-[#f5f3ee] rounded-lg transition-all font-headline text-lg" href="#">
+<a class="flex items-center gap-4 px-4 py-3 text-stone-400 hover:bg-[#f5f3ee] rounded-lg transition-all font-headline text-lg" href="#founder-delta">
 <span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
 <span>Founder Delta</span>
 </a>
-<a class="flex items-center gap-4 px-4 py-3 text-stone-400 hover:bg-[#f5f3ee] rounded-lg transition-all font-headline text-lg" href="#">
+<a class="flex items-center gap-4 px-4 py-3 text-stone-400 hover:bg-[#f5f3ee] rounded-lg transition-all font-headline text-lg" href="#masterclass">
 <span class="material-symbols-outlined" data-icon="school">school</span>
 <span>Masterclass</span>
 </a>
@@ -186,7 +186,7 @@
 </header>
 <div class="px-12 py-12 max-w-screen-2xl mx-auto space-y-24">
 <!-- EPISODE HERO ROW -->
-<section>
+<section id="library">
 <div class="flex justify-between items-end mb-10">
 <h2 class="font-headline italic text-4xl text-on-surface">High-Fidelity Intelligence</h2>
 <div class="flex gap-4">
@@ -256,7 +256,7 @@
 </div>
 </section>
 <!-- INTERCONNECTIVITY HUB: NETWORK CLUSTER -->
-<section class="bg-surface-container-low -mx-12 px-12 py-20 relative overflow-hidden">
+<section id="constellation" class="bg-surface-container-low -mx-12 px-12 py-20 relative overflow-hidden">
 <div class="relative z-10 grid grid-cols-12 gap-12 items-center">
 <div class="col-span-4">
 <h2 class="font-headline italic text-4xl mb-6">Relationship Constellation</h2>
@@ -299,7 +299,7 @@
 </div>
 </section>
 <!-- Founder Delta Grid (Preserved Layout) -->
-<section>
+<section id="founder-delta">
 <div class="mb-16">
 <h2 class="font-headline italic text-4xl mb-4">Founder Delta</h2>
 <p class="font-body text-on-surface-variant max-w-xl">Measuring the velocity of insight. We track the moment a founder's perspective shifts—and the subsequent impact on their growth metrics.</p>
@@ -391,7 +391,7 @@
 </div>
 </section>
 <!-- Signature Element: Oversized Noto Serif Quote -->
-<section class="py-12 border-y border-outline-variant/10">
+<section id="masterclass" class="py-12 border-y border-outline-variant/10">
 <div class="max-w-4xl mx-auto text-center space-y-8">
 <span class="material-symbols-outlined text-[#39ff14] text-6xl" data-icon="format_quote" style="font-variation-settings: 'FILL' 1;">format_quote</span>
 <h2 class="font-headline italic text-4xl leading-relaxed text-on-surface">
@@ -404,7 +404,7 @@
 <!-- Footer (Shared Component) -->
 <footer class="w-full flex flex-col items-center justify-center gap-8 border-t border-stone-200/20 bg-[#f5f3ee] py-12">
 <div class="flex gap-12">
-<a class="font-sans text-[11px] uppercase tracking-[0.2em] text-[#775653] hover:text-[#39ff14] underline decoration-[#39ff14] underline-offset-4 transition-all" href="#">Relationship Constellation</a>
+<a class="font-sans text-[11px] uppercase tracking-[0.2em] text-[#775653] hover:text-[#39ff14] underline decoration-[#39ff14] underline-offset-4 transition-all" href="#constellation">Relationship Constellation</a>
 <a class="font-sans text-[11px] uppercase tracking-[0.2em] text-[#775653] hover:text-[#39ff14] underline decoration-[#39ff14] underline-offset-4 transition-all" href="#">Investor Network</a>
 <a class="font-sans text-[11px] uppercase tracking-[0.2em] text-[#775653] hover:text-[#39ff14] underline decoration-[#39ff14] underline-offset-4 transition-all" href="#">Privacy Policy</a>
 </div>
@@ -417,26 +417,101 @@ async function loadDashboard() {
   const res = await fetch('./wiki/dashboard_data.json', { cache: 'no-store' });
   const data = await res.json();
   window.TWIST_DATA = data;
-  // lightweight hydration for demo readiness
-  const heroCards = [...document.querySelectorAll('section .grid.grid-cols-3 > div.group')].slice(0,3);
+
+  const yearNode = [...document.querySelectorAll('footer p')].find(p => p.textContent.includes('©'));
+  if (yearNode) yearNode.textContent = `© ${new Date().getFullYear()} TWiST Intelligence. All Rights Reserved.`;
+
+  const heroCards = [...document.querySelectorAll('#library .grid.grid-cols-3 > div.group')].slice(0,3);
   (data.hero_episodes || []).slice(0,3).forEach((item, i) => {
     const card = heroCards[i];
     if (!card) return;
     const img = card.querySelector('img'); if (img && item.thumbnail) img.src = item.thumbnail;
-    const stat = card.querySelector('p.text-[11px]'); if (stat) stat.innerHTML = `${item.delta_label || ''}: <span class="text-tertiary">${item.delta_then || ''}</span> <span class="text-[#39ff14]">→</span> ${item.delta_now || ''} <span class="text-[#39ff14] ml-1">(${item.delta_percent || ''})</span>`;
+    const stat = card.querySelector('p.text-[11px]');
+    if (stat) stat.innerHTML = `${item.delta_label || ''}: <span class="text-tertiary">${item.delta_then || ''}</span> <span class="text-[#39ff14]">→</span> ${item.delta_now || ''} <span class="text-[#39ff14] ml-1">(${item.delta_percent || ''})</span>`;
     const h3 = card.querySelector('h3'); if (h3) h3.textContent = item.headline || item.title || '';
+    card.title = item.title || '';
     card.onclick = () => { if (item.youtube_url) window.open(item.youtube_url, '_blank'); };
   });
-  const deltaCards = [...document.querySelectorAll('section .grid.grid-cols-4 > div')].slice(0,4);
+
+  const deltaCards = [...document.querySelectorAll('#founder-delta .grid.grid-cols-4 > div')].slice(0,4);
   (data.trajectory_delta || []).slice(0,4).forEach((item, i) => {
     const card = deltaCards[i]; if (!card) return;
     const name = card.querySelector('h4'); if (name) name.textContent = item.founder || '';
     const role = card.querySelector('p.text-xs'); if (role) role.textContent = `${item.role || ''}, ${item.company || ''}`;
-    const delta = card.querySelector('span.text-\[#39ff14\]'); if (delta) delta.textContent = item.delta_percent || '';
-    const stats = card.querySelectorAll('.font-headline.text-sm span');
-    if (stats[0]) stats[0].textContent = item.then_label || '';
-    if (stats[1]) stats[1].textContent = item.now_label || '';
+    const delta = card.querySelector('span.text-\[\#39ff14\]') || card.querySelector('span.text-[#39ff14]');
+    if (delta) delta.textContent = item.delta_percent || '';
+    const statRow = card.querySelectorAll('.font-headline.text-sm span');
+    if (statRow[0]) statRow[0].textContent = item.then_label || '';
+    if (statRow[1]) statRow[1].textContent = item.now_label || '';
+    const btn = card.querySelector('button');
+    if (btn) {
+      btn.textContent = 'View Evidence';
+      btn.onclick = () => alert(item.intervention_note || 'No note yet');
+    }
   });
+
+  const constellationTitle = document.querySelector('#constellation .space-y-4 span.text-\[11px\]');
+  if (constellationTitle && data.constellation_nodes?.length) {
+    const active = data.constellation_nodes.find(n => n.active && n.type === 'vc') || data.constellation_nodes[0];
+    constellationTitle.textContent = `Active Node: ${active.label}`;
+  }
+  const svg = document.querySelector('#constellation svg');
+  if (svg && data.constellation_nodes?.length) {
+    const g = svg.querySelector('g.constellation-group');
+    if (g) {
+      g.innerHTML = '';
+      const nodes = data.constellation_nodes;
+      const byLabel = Object.fromEntries(nodes.map(n => [n.label, n]));
+      const drawn = new Set();
+      nodes.forEach(n => (n.connected_to || []).forEach(target => {
+        if (!byLabel[target]) return;
+        const key = [n.label, target].sort().join('::');
+        if (drawn.has(key)) return;
+        drawn.add(key);
+        const line = document.createElementNS('http://www.w3.org/2000/svg','line');
+        line.setAttribute('class','constellation-line');
+        line.setAttribute('x1', n.x); line.setAttribute('y1', n.y);
+        line.setAttribute('x2', byLabel[target].x); line.setAttribute('y2', byLabel[target].y);
+        g.appendChild(line);
+      }));
+      nodes.forEach(n => {
+        const circle = document.createElementNS('http://www.w3.org/2000/svg','circle');
+        circle.setAttribute('cx', n.x); circle.setAttribute('cy', n.y);
+        circle.setAttribute('r', n.type === 'vc' ? '6' : '4');
+        circle.setAttribute('class', n.active ? 'fill-[#39ff14] glow-node' : 'fill-on-surface');
+        g.appendChild(circle);
+        const text = document.createElementNS('http://www.w3.org/2000/svg','text');
+        text.setAttribute('x', n.x); text.setAttribute('y', n.y);
+        text.setAttribute('dx', '10'); text.setAttribute('dy', '4');
+        text.setAttribute('class', n.active ? 'text-[9px] font-bold fill-tertiary uppercase tracking-tighter' : 'text-[10px] font-bold fill-on-surface uppercase tracking-widest');
+        text.textContent = n.company ? `${n.label}${n.type === 'guest' ? ` (${n.company})` : ''}` : n.label;
+        g.appendChild(text);
+      });
+    }
+  }
+
+  const missCards = [...document.querySelectorAll('footer')][0]?.previousElementSibling?.previousElementSibling;
+  if (data.masterclass_featured) {
+    const quote = document.querySelector('#masterclass h2');
+    if (quote) quote.textContent = data.masterclass_featured.title;
+    const quoteBy = document.querySelector('#masterclass p');
+    if (quoteBy) quoteBy.textContent = `${(data.masterclass_featured.topics || []).join(' • ')} • ${data.masterclass_featured.duration || ''}`;
+  }
+
+  const misses = data.the_misses || [];
+  const missHeadings = [...document.querySelectorAll('h3.font-headline.text-3xl')].slice(-misses.length);
+  missHeadings.forEach((h, i) => { if (misses[i]) h.textContent = misses[i].company; });
+
+  const search = document.querySelector('input[placeholder="Ask the TWiST Brain..."]');
+  if (search) {
+    search.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter') return;
+      const q = search.value.toLowerCase().trim();
+      if (!q) return;
+      const hit = (data.hero_episodes || []).find(x => (x.title + ' ' + x.headline).toLowerCase().includes(q));
+      if (hit?.youtube_url) window.open(hit.youtube_url, '_blank');
+    });
+  }
 }
 loadDashboard();
 </script>
