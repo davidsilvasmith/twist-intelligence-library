@@ -117,17 +117,17 @@
 <span class="material-symbols-outlined" data-icon="school">school</span>
 <span>Masterclass</span>
 </a>
-<a class="flex items-center gap-4 px-4 py-3 text-stone-400 hover:bg-[#f5f3ee] rounded-lg transition-all font-headline text-lg" href="#">
+<a class="flex items-center gap-4 px-4 py-3 text-stone-400 hover:bg-[#f5f3ee] rounded-lg transition-all font-headline text-lg" href="#library" data-action="archives">
 <span class="material-symbols-outlined" data-icon="history">history</span>
 <span>Archives</span>
 </a>
 </div>
 <div class="mt-auto pt-6 flex flex-col gap-4">
-<a class="flex items-center gap-4 px-4 py-3 text-stone-400 hover:bg-[#f5f3ee] rounded-lg transition-all font-headline text-lg" href="#">
+<a class="flex items-center gap-4 px-4 py-3 text-stone-400 hover:bg-[#f5f3ee] rounded-lg transition-all font-headline text-lg" href="#" data-action="settings">
 <span class="material-symbols-outlined" data-icon="settings">settings</span>
 <span>Settings</span>
 </a>
-<button class="bg-[#106e00] text-white py-4 px-6 rounded-xl font-bold text-sm tracking-tight shadow-lg shadow-primary/10">
+<button id="launch-intelligence" class="bg-[#106e00] text-white py-4 px-6 rounded-xl font-bold text-sm tracking-tight shadow-lg shadow-primary/10">
             Launch Intelligence
         </button>
 </div>
@@ -147,14 +147,14 @@
 <span class="text-[10px] font-bold uppercase tracking-widest text-tertiary mb-1">Compare Stance</span>
 <div class="flex items-center gap-3">
 <span class="text-[10px] font-bold text-outline">OFF</span>
-<div class="w-12 h-6 bg-primary rounded-full relative cursor-pointer shadow-inner">
+<button id="compare-toggle" class="w-12 h-6 bg-primary rounded-full relative cursor-pointer shadow-inner" aria-label="Toggle compare stance">
 <div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full transition-all"></div>
-</div>
+</button>
 <span class="text-[10px] font-bold text-primary">ON</span>
 </div>
 </div>
 <div class="w-px h-10 bg-outline-variant/20"></div>
-<button class="material-symbols-outlined text-outline hover:text-primary transition-colors" data-icon="notifications">notifications</button>
+<button id="notifications-button" class="material-symbols-outlined text-outline hover:text-primary transition-colors" data-icon="notifications">notifications</button>
 </div>
 </div>
 <!-- Stance Comparison Split-View (Active State) -->
@@ -190,10 +190,10 @@
 <div class="flex justify-between items-end mb-10">
 <h2 class="font-headline italic text-4xl text-on-surface">High-Fidelity Intelligence</h2>
 <div class="flex gap-4">
-<button class="p-2 border border-outline-variant/20 rounded-full text-outline hover:bg-surface-container transition-colors">
+<button id="hero-prev" class="p-2 border border-outline-variant/20 rounded-full text-outline hover:bg-surface-container transition-colors">
 <span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
 </button>
-<button class="p-2 border border-outline-variant/20 rounded-full text-outline hover:bg-surface-container transition-colors">
+<button id="hero-next" class="p-2 border border-outline-variant/20 rounded-full text-outline hover:bg-surface-container transition-colors">
 <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
 </button>
 </div>
@@ -401,6 +401,20 @@
 </div>
 </section>
 </div>
+
+<div id="twist-modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50 p-6">
+  <div class="bg-white max-w-2xl w-full rounded-2xl shadow-2xl border border-outline-variant/20 overflow-hidden">
+    <div class="flex items-center justify-between px-6 py-4 border-b border-outline-variant/10 bg-surface-container-low">
+      <h3 id="twist-modal-title" class="font-headline text-2xl italic">Detail</h3>
+      <button id="twist-modal-close" class="material-symbols-outlined text-on-surface-variant hover:text-primary">close</button>
+    </div>
+    <div class="p-6 space-y-4">
+      <p id="twist-modal-body" class="text-sm leading-7 text-on-surface"></p>
+      <div id="twist-modal-actions" class="flex gap-3"></div>
+    </div>
+  </div>
+</div>
+
 <!-- Footer (Shared Component) -->
 <footer class="w-full flex flex-col items-center justify-center gap-8 border-t border-stone-200/20 bg-[#f5f3ee] py-12">
 <div class="flex gap-12">
@@ -413,25 +427,57 @@
 </main>
 
 <script>
+function openModal(title, body, actions = []) {
+  const modal = document.getElementById('twist-modal');
+  document.getElementById('twist-modal-title').textContent = title;
+  document.getElementById('twist-modal-body').textContent = body;
+  const wrap = document.getElementById('twist-modal-actions');
+  wrap.innerHTML = '';
+  actions.forEach(a => {
+    const btn = document.createElement(a.href ? 'a' : 'button');
+    btn.className = 'px-4 py-2 rounded-lg bg-primary text-on-primary font-bold text-sm';
+    btn.textContent = a.label;
+    if (a.href) { btn.href = a.href; btn.target = '_blank'; }
+    else if (a.onClick) btn.onclick = a.onClick;
+    wrap.appendChild(btn);
+  });
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+}
+function closeModal() {
+  const modal = document.getElementById('twist-modal');
+  modal.classList.add('hidden');
+  modal.classList.remove('flex');
+}
 async function loadDashboard() {
   const res = await fetch('./wiki/dashboard_data.json', { cache: 'no-store' });
   const data = await res.json();
   window.TWIST_DATA = data;
 
+  document.getElementById('twist-modal-close')?.addEventListener('click', closeModal);
+  document.getElementById('twist-modal')?.addEventListener('click', (e) => { if (e.target.id === 'twist-modal') closeModal(); });
+
   const yearNode = [...document.querySelectorAll('footer p')].find(p => p.textContent.includes('©'));
   if (yearNode) yearNode.textContent = `© ${new Date().getFullYear()} TWiST Intelligence. All Rights Reserved.`;
 
+  let heroIndex = 0;
   const heroCards = [...document.querySelectorAll('#library .grid.grid-cols-3 > div.group')].slice(0,3);
-  (data.hero_episodes || []).slice(0,3).forEach((item, i) => {
-    const card = heroCards[i];
-    if (!card) return;
-    const img = card.querySelector('img'); if (img && item.thumbnail) img.src = item.thumbnail;
-    const stat = card.querySelector('p.text-[11px]');
-    if (stat) stat.innerHTML = `${item.delta_label || ''}: <span class="text-tertiary">${item.delta_then || ''}</span> <span class="text-[#39ff14]">→</span> ${item.delta_now || ''} <span class="text-[#39ff14] ml-1">(${item.delta_percent || ''})</span>`;
-    const h3 = card.querySelector('h3'); if (h3) h3.textContent = item.headline || item.title || '';
-    card.title = item.title || '';
-    card.onclick = () => { if (item.youtube_url) window.open(item.youtube_url, '_blank'); };
-  });
+  const heroes = data.hero_episodes || [];
+  function renderHeroes(startIndex = 0) {
+    heroCards.forEach((card, i) => {
+      const item = heroes[(startIndex + i) % heroes.length] || heroes[i];
+      if (!card || !item) return;
+      const img = card.querySelector('img'); if (img && item.thumbnail) img.src = item.thumbnail;
+      const stat = card.querySelector('p.text-[11px]');
+      if (stat) stat.innerHTML = `${item.delta_label || ''}: <span class="text-tertiary">${item.delta_then || ''}</span> <span class="text-[#39ff14]">→</span> ${item.delta_now || ''} <span class="text-[#39ff14] ml-1">(${item.delta_percent || ''})</span>`;
+      const h3 = card.querySelector('h3'); if (h3) h3.textContent = item.headline || item.title || '';
+      card.title = item.title || '';
+      card.onclick = () => item.youtube_url ? window.open(item.youtube_url, '_blank') : openModal(item.title || 'Episode', 'Episode link is not available yet.');
+    });
+  }
+  if (heroes.length) renderHeroes(heroIndex);
+  document.getElementById('hero-prev')?.addEventListener('click', () => { if (!heroes.length) return; heroIndex = (heroIndex - 1 + heroes.length) % heroes.length; renderHeroes(heroIndex); });
+  document.getElementById('hero-next')?.addEventListener('click', () => { if (!heroes.length) return; heroIndex = (heroIndex + 1) % heroes.length; renderHeroes(heroIndex); });
 
   const deltaCards = [...document.querySelectorAll('#founder-delta .grid.grid-cols-4 > div')].slice(0,4);
   (data.trajectory_delta || []).slice(0,4).forEach((item, i) => {
@@ -446,8 +492,12 @@ async function loadDashboard() {
     const btn = card.querySelector('button');
     if (btn) {
       btn.textContent = 'View Evidence';
-      btn.onclick = () => alert(item.intervention_note || 'No note yet');
+      btn.onclick = () => openModal(`${item.founder} — ${item.company}`, `${item.intervention_note || ''}${item.verification ? `
+
+Verification: ${item.verification}` : ''}`);
     }
+    card.style.cursor = 'pointer';
+    card.onclick = (e) => { if (e.target.tagName !== 'BUTTON') btn?.click(); };
   });
 
   const constellationTitle = document.querySelector('#constellation .space-y-4 span.text-\[11px\]');
@@ -479,6 +529,10 @@ async function loadDashboard() {
         circle.setAttribute('cx', n.x); circle.setAttribute('cy', n.y);
         circle.setAttribute('r', n.type === 'vc' ? '6' : '4');
         circle.setAttribute('class', n.active ? 'fill-[#39ff14] glow-node' : 'fill-on-surface');
+        circle.style.cursor = 'pointer';
+        circle.addEventListener('click', () => openModal(n.label, `${n.type.toUpperCase()} • ${n.company || ''}
+
+Connected to: ${(n.connected_to || []).join(', ')}`));
         g.appendChild(circle);
         const text = document.createElementNS('http://www.w3.org/2000/svg','text');
         text.setAttribute('x', n.x); text.setAttribute('y', n.y);
@@ -490,17 +544,40 @@ async function loadDashboard() {
     }
   }
 
-  const missCards = [...document.querySelectorAll('footer')][0]?.previousElementSibling?.previousElementSibling;
   if (data.masterclass_featured) {
     const quote = document.querySelector('#masterclass h2');
     if (quote) quote.textContent = data.masterclass_featured.title;
     const quoteBy = document.querySelector('#masterclass p');
     if (quoteBy) quoteBy.textContent = `${(data.masterclass_featured.topics || []).join(' • ')} • ${data.masterclass_featured.duration || ''}`;
+    document.getElementById('masterclass').style.cursor = 'pointer';
+    document.getElementById('masterclass').onclick = () => {
+      const m = data.masterclass_featured;
+      openModal(m.title, `Episode: ${m.episode}
+Topics: ${(m.topics || []).join(', ')}
+Duration: ${m.duration || ''}`, m.youtube_url ? [{label:'Open Episode', href:m.youtube_url}] : []);
+    };
   }
 
   const misses = data.the_misses || [];
-  const missHeadings = [...document.querySelectorAll('h3.font-headline.text-3xl')].slice(-misses.length);
-  missHeadings.forEach((h, i) => { if (misses[i]) h.textContent = misses[i].company; });
+  const missCards = [...document.querySelectorAll('h3.font-headline.text-3xl')].map(h => h.closest('article')).filter(Boolean).slice(0, misses.length);
+  missCards.forEach((card, i) => {
+    const miss = misses[i]; if (!miss) return;
+    const h = card.querySelector('h3.font-headline.text-3xl'); if (h) h.textContent = miss.company;
+    const atTime = card.querySelector('.bg-white\/60 .font-bold'); if (atTime) atTime.textContent = miss.at_the_time;
+    const delta = card.querySelector('.miss-delta-gradient'); if (delta) delta.textContent = miss.miss_delta;
+    const boxes = card.querySelectorAll('.grid.grid-cols-2 p.text-xs');
+    if (boxes[0]) boxes[0].textContent = miss.logic_then;
+    if (boxes[1]) boxes[1].textContent = miss.reality_now;
+    const lesson = card.querySelector('.border-l-4 p.text-sm'); if (lesson) lesson.textContent = `Lesson: ${miss.lesson}`;
+    card.style.cursor = 'pointer';
+    card.onclick = () => openModal(`${miss.company} — Revisionist Logic`, `${miss.logic_then}
+
+What the market proved:
+${miss.reality_now}
+
+Lesson:
+${miss.lesson}`);
+  });
 
   const search = document.querySelector('input[placeholder="Ask the TWiST Brain..."]');
   if (search) {
@@ -510,8 +587,19 @@ async function loadDashboard() {
       if (!q) return;
       const hit = (data.hero_episodes || []).find(x => (x.title + ' ' + x.headline).toLowerCase().includes(q));
       if (hit?.youtube_url) window.open(hit.youtube_url, '_blank');
+      else openModal('No direct match yet', `No live result for “${search.value}”. Try Glasswing, Boardy, or agent workflows.`);
     });
   }
+
+  document.querySelector('[data-action="archives"]')?.addEventListener('click', (e) => { e.preventDefault(); document.getElementById('library')?.scrollIntoView({behavior:'smooth'}); openModal('Archives', 'Archive mode is not built yet. For now, use the Library cards and search.'); });
+  document.querySelector('[data-action="settings"]')?.addEventListener('click', (e) => { e.preventDefault(); openModal('Settings', 'Settings UI is not built yet. Next pass: source toggles, data freshness, and export controls.'); });
+  document.getElementById('launch-intelligence')?.addEventListener('click', () => document.getElementById('library')?.scrollIntoView({behavior:'smooth'}));
+  document.getElementById('notifications-button')?.addEventListener('click', () => openModal('Notifications', 'No alerts configured yet. Next pass: new episode ingests, founder changes, and anti-portfolio updates.'));
+  document.getElementById('compare-toggle')?.addEventListener('click', () => openModal('Compare Stance', 'Historical stance comparison is currently static. Next pass: load opinion deltas from archived episodes.'));
+
+  const footerLinks = [...document.querySelectorAll('footer a')];
+  if (footerLinks[1]) footerLinks[1].addEventListener('click', (e) => { e.preventDefault(); document.getElementById('constellation')?.scrollIntoView({behavior:'smooth'}); });
+  if (footerLinks[2]) footerLinks[2].addEventListener('click', (e) => { e.preventDefault(); openModal('Privacy Policy', 'This is a research prototype. Next pass: publish methodology, privacy, and source provenance.'); });
 }
 loadDashboard();
 </script>
