@@ -234,6 +234,78 @@
       "active": true,
       "url": "/founders/victor-riparbelli.html",
       "delta_tooltip": "Synthesia: +scale validated"
+    },
+    {
+      "label": "HalfCourt Ventures",
+      "type": "vc",
+      "company": "HalfCourt Ventures",
+      "connected_to": [
+        "Rob May",
+        "Neurometric"
+      ],
+      "url": "/episodes/e2273.html",
+      "delta_tooltip": "HalfCourt Ventures: Neurometric systems-layer signal",
+      "active": true
+    },
+    {
+      "label": "Boardy",
+      "type": "company",
+      "company": "Boardy",
+      "connected_to": [
+        "Andrew D'Souza",
+        "Creandum"
+      ],
+      "url": "/founders/andrew-d-souza.html",
+      "delta_tooltip": "Boardy: $17M raised",
+      "active": true
+    },
+    {
+      "label": "Applied AI",
+      "type": "concept",
+      "company": "Applied AI",
+      "connected_to": [
+        "Creandum",
+        "GV"
+      ],
+      "url": "/index.html",
+      "delta_tooltip": "Applied AI: audited operator layer",
+      "active": true
+    },
+    {
+      "label": "Victor Riparbelli",
+      "type": "guest",
+      "company": "Synthesia",
+      "connected_to": [
+        "NEA",
+        "GV",
+        "Synthesia"
+      ],
+      "url": "/founders/victor-riparbelli.html",
+      "delta_tooltip": "Synthesia: +scale validated",
+      "active": true
+    },
+    {
+      "label": "Neurometric",
+      "type": "company",
+      "company": "Neurometric",
+      "connected_to": [
+        "Rob May",
+        "HalfCourt Ventures"
+      ],
+      "url": "/founders/rob-may.html",
+      "delta_tooltip": "Neurometric: Project Glasswing context",
+      "active": true
+    },
+    {
+      "label": "OpenClaw ecosystem",
+      "type": "concept",
+      "company": "OpenClaw",
+      "connected_to": [
+        "Ryan Carson"
+      ],
+      "url": "/episodes/e2272.html",
+      "delta_tooltip": "OpenClaw ecosystem: workflow economics",
+      "active": true
     }
   ],
   "the_misses": [
