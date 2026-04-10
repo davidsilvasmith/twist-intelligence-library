@@ -34,7 +34,7 @@ while True:
         log('worker_done')
         break
     item = episodes[i]
-    prompt = f"Return plain JSON only with keys episode,title,topics,masterclass_summary. Keep summary under 100 words. Episode {item['episode']}: {item['title']}"
+    prompt = f"Return plain JSON only with keys episode,title,topics,core_question,thesis,axioms,decision_rules,proof_points,contrarian_take,operator_playbook,watchouts,one_line_formula. This is not a summary. Extract a doctrine-first operator playbook from the episode. Rules: 3-5 axioms max, 2-4 decision rules max, proof points must be concrete, operator_playbook must be actionable next-week steps, keep every field concise and high-signal. Episode {item['episode']}: {item['title']}"
     cmd = ['npx','@google/gemini-cli','-p',prompt,'--output-format','json']
     log(f"start {item['episode']}")
     try:
@@ -58,13 +58,21 @@ while True:
                 'episode': item['episode'],
                 'title': item['title'],
                 'topics': [],
-                'masterclass_summary': resp[:800]
+                'core_question': '',
+                'thesis': resp[:300],
+                'axioms': [],
+                'decision_rules': [],
+                'proof_points': [],
+                'contrarian_take': '',
+                'operator_playbook': [],
+                'watchouts': [],
+                'one_line_formula': ''
             }
         (root/'wiki/raw'/f"{item['episode']}_gemini_min.json").write_text(json.dumps(data, indent=2))
         safe = re.sub(r'[^A-Za-z0-9]+','_', item['title']).strip('_')
         mc_path = root/'wiki/masterclasses'/f"{item['episode']}_{safe}.md"
         mc_path.write_text(
-            f"---\nepisode: {item['episode']}\ntitle: \"{item['title']}\"\nyoutube_url: \"{item.get('youtube_url','')}\"\nthumbnail: \"{item.get('thumbnail','')}\"\ntopics: {json.dumps(data.get('topics', []))}\nstatus: enriched_min\nsource_method: gemini_worker\n---\n\n# {item['episode']} - {item['title']}\n\n## 5-minute masterclass\n{data.get('masterclass_summary','')}\n"
+            f"---\nepisode: {item['episode']}\ntitle: \"{item['title']}\"\nyoutube_url: \"{item.get('youtube_url','')}\"\nthumbnail: \"{item.get('thumbnail','')}\"\ntopics: {json.dumps(data.get('topics', []))}\nstatus: doctrine_v1\nsource_method: gemini_worker\n---\n\n# {item['episode']} - {item['title']}\n\n## Core Question\n{data.get('core_question','')}\n\n## Thesis\n{data.get('thesis','')}\n\n## Axioms\n" + '\n'.join(f"- {x}" for x in data.get('axioms', [])) + "\n\n## Decision Rules\n" + '\n'.join(f"- {x}" for x in data.get('decision_rules', [])) + "\n\n## Proof Points\n" + '\n'.join(f"- {x}" for x in data.get('proof_points', [])) + f"\n\n## Contrarian Take\n{data.get('contrarian_take','')}\n\n## Operator Playbook\n" + '\n'.join(f"- {x}" for x in data.get('operator_playbook', [])) + "\n\n## Watchouts\n" + '\n'.join(f"- {x}" for x in data.get('watchouts', [])) + f"\n\n## One-Line Formula\n{data.get('one_line_formula','')}\n"
         )
         state.setdefault('completed', []).append(item['episode'])
         state['nextIndex'] = i + 1
