@@ -16,7 +16,9 @@
         "Cybersecurity",
         "Inference-Time Compute",
         "Applied AI"
-      ]
+      ],
+      "audit_hardened": true,
+      "delta_tooltip": "Neurometric: +systems-layer credibility"
     },
     {
       "episode": "E2272",
@@ -34,7 +36,9 @@
         "Pricing",
         "Automation",
         "Applied AI"
-      ]
+      ],
+      "audit_hardened": true,
+      "delta_tooltip": "ClawChief: +product maturity"
     },
     {
       "episode": "E2271",
@@ -52,7 +56,9 @@
         "AI",
         "Tabular Data Rigor",
         "Fundraising"
-      ]
+      ],
+      "audit_hardened": true,
+      "delta_tooltip": "Boardy: $17M raised"
     }
   ],
   "trajectory_delta": [
@@ -66,8 +72,10 @@
       "metric_type": "funding",
       "intervention_note": "Jason's filter shifts from AI vibes to measurable tabular-data proof.",
       "episode": "E2271",
-      "image": "",
-      "verification": "user-provided truth audit"
+      "image": "https://images.crunchbase.com/image/upload/c_thumb,h_256,w_256,f_auto,g_faces,z_0.7,q_auto:eco,dpr_2/v1438258327/p2i88mlyqjex79sc2x0l.jpg",
+      "verification": "user-provided truth audit",
+      "audit_hardened": true,
+      "delta_tooltip": "Boardy: $17M raised"
     },
     {
       "founder": "Rob May",
@@ -79,8 +87,10 @@
       "metric_type": "positioning",
       "intervention_note": "The edge shifts from training spectacle to inference-time systems advantage.",
       "episode": "E2273",
-      "image": "",
-      "verification": "user-provided truth audit"
+      "image": "https://images.crunchbase.com/image/upload/c_thumb,h_256,w_256,f_auto,g_faces,z_0.7,q_auto:eco,dpr_2/v1398284534/y3cpx07uonexkivt598q.jpg",
+      "verification": "user-provided truth audit",
+      "audit_hardened": true,
+      "delta_tooltip": "Neurometric: +systems-layer credibility"
     },
     {
       "founder": "Ryan Carson",
@@ -93,7 +103,9 @@
       "intervention_note": "The business lives or dies on whether workflow value exceeds model spend.",
       "episode": "E2272",
       "image": "",
-      "verification": "user-provided truth audit"
+      "verification": "user-provided truth audit",
+      "audit_hardened": false,
+      "delta_tooltip": "ClawChief: +product maturity"
     },
     {
       "founder": "Victor Riparbelli",
@@ -105,8 +117,10 @@
       "metric_type": "valuation",
       "intervention_note": "Applied AI category winners compound by owning workflow outcomes, not general intelligence.",
       "episode": "contextual",
-      "image": "",
-      "verification": "user-provided truth audit"
+      "image": "https://cdn.prod.website-files.com/61845f7929f5aa517ebab999/649195a02484a0d8e859ec1a_Victor%20Riparbelli.jpg",
+      "verification": "user-provided truth audit",
+      "audit_hardened": true,
+      "delta_tooltip": "Synthesia: +scale validated"
     }
   ],
   "constellation_nodes": [
@@ -134,7 +148,9 @@
       ],
       "x": 150,
       "y": 100,
-      "active": true
+      "active": true,
+      "url": "/founders/andrew-d-souza.html",
+      "delta_tooltip": "Boardy: $17M raised"
     },
     {
       "label": "Rob May",
@@ -146,7 +162,9 @@
       ],
       "x": 150,
       "y": 350,
-      "active": true
+      "active": true,
+      "url": "/founders/rob-may.html",
+      "delta_tooltip": "Neurometric: +systems-layer credibility"
     },
     {
       "label": "Ryan Carson",
@@ -158,7 +176,9 @@
       ],
       "x": 650,
       "y": 350,
-      "active": true
+      "active": true,
+      "url": "/founders/ryan-carson.html",
+      "delta_tooltip": "ClawChief: +product maturity"
     },
     {
       "label": "Creandum",
@@ -171,7 +191,9 @@
       ],
       "x": 650,
       "y": 100,
-      "active": true
+      "active": true,
+      "url": "/episodes/e2271.html",
+      "delta_tooltip": "Creandum nexus: Boardy institutional validation"
     },
     {
       "label": "NEA",
@@ -195,7 +217,9 @@
       ],
       "x": 560,
       "y": 120,
-      "active": true
+      "active": true,
+      "url": "/founders/victor-riparbelli.html",
+      "delta_tooltip": "GV nexus: Synthesia $4B / $200M Series E"
     },
     {
       "label": "Synthesia",
@@ -207,7 +231,9 @@
       ],
       "x": 700,
       "y": 240,
-      "active": true
+      "active": true,
+      "url": "/founders/victor-riparbelli.html",
+      "delta_tooltip": "Synthesia: +scale validated"
     }
   ],
   "the_misses": [
@@ -217,19 +243,19 @@
       "status": "MAJOR MISS",
       "at_the_time": "Regulatory risk and belief that black-car demand was niche",
       "miss_delta": "12,500x",
-      "logic_then": "Jason's original pass centered on regulatory risk and the belief that the market would stay trapped inside legacy transport constraints.",
-      "reality_now": "Software created the trust layer and demand liquidity that let Uber break out of the old regulated category frame.",
-      "lesson": "When software becomes the trust and coordination layer, regulatory fear can hide category expansion."
+      "logic_then": "Passed on regulatory and market-structure risk because the category looked capped by legacy transport rules.",
+      "reality_now": "Liquidity, software trust, and demand aggregation turned a constrained service into a platform-scale winner.",
+      "lesson": "When software rewrites market structure, old category ceilings break fast."
     },
     {
       "company": "Airbnb",
       "vintage": "2009",
       "status": "MAJOR MISS",
       "at_the_time": "Trust, safety, and social discomfort looked fatal",
-      "miss_delta": "$78.62B market cap",
-      "logic_then": "People would not reliably sleep in strangers' homes, so mainstream adoption looked impossible.",
-      "reality_now": "The software trust layer, ratings, identity, and repeat reputation loops turned stranger risk into a scalable lodging marketplace now worth $78.62B.",
-      "lesson": "When software removes a deep human trust barrier, category size can reset upward fast."
+      "miss_delta": "$78.04B market cap",
+      "logic_then": "Passed on trust risk in 2009 because mainstream behavior looked too brittle for scale.",
+      "reality_now": "Software trust layers, ratings, identity, and repeat reputation loops proved to be the $78.04B unlock by 2026.",
+      "lesson": "When software absorbs trust risk, a category that looked impossible can become inevitable."
     }
   ],
   "masterclass_featured": {
