@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How it works | TWiST Intelligence Library</title>
+<meta name="description" content="Methodology for compiling the TWiST Intelligence Library from transcripts to wiki pages.">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+body { font-family: Inter, sans-serif; }
+.headline { font-family: 'Noto Serif', serif; }
+.tag { display: inline-block; padding: 2px 10px; border-radius: 9999px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+.tag-founder { background: #dcfce7; color: #166534; }
+.tag-company { background: #dbeafe; color: #1e40af; }
+.tag-vc { background: #fef3c7; color: #92400e; }
+.tag-concept { background: #ede9fe; color: #5b21b6; }
+.tag-episode { background: #f1f5f9; color: #334155; }
+a.entity-link { color: #166534; text-decoration: underline; text-decoration-color: #bbf7d0; text-underline-offset: 2px; }
+a.entity-link:hover { text-decoration-color: #166534; }
+</style>
+</head><body class="bg-[#f9f7f2] text-stone-900">
+<nav class="sticky top-0 z-20 bg-[#f9f7f2]/95 backdrop-blur border-b border-stone-200">
+<div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+<a href="/" class="headline text-xl italic font-bold text-stone-900 no-underline">TWiST Intelligence</a>
+<div class="flex gap-5 text-sm font-medium text-stone-600">
+<a href="/" class="hover:text-green-700">Library</a>
+<a href="/episodes/" class="hover:text-green-700">Episodes</a>
+<a href="/founders/" class="hover:text-green-700">Founders</a>
+<a href="/companies/" class="hover:text-green-700">Companies</a>
+<a href="/vcs/" class="hover:text-green-700">VCs</a>
+<a href="/concepts/" class="hover:text-green-700">Concepts</a>
+<a href="/how-it-works/" class="hover:text-green-700">How it works</a>
+</div></div></nav>
+<main class="max-w-5xl mx-auto px-6 py-12">
+<article class="max-w-3xl mx-auto">
+<div class="text-[11px] uppercase tracking-[0.2em] text-green-700 font-bold mb-4">Methodology</div>
+<h1 class="headline text-5xl italic mb-6 leading-tight">How the Library is built</h1>
+<p class="text-xl text-stone-600 leading-relaxed mb-10">The TWiST Intelligence Library turns conversation into structured knowledge. Each episode travels through a four-stage pipeline before it becomes a page you can link to.</p>
+
+<section class="mb-10">
+<div class="text-[11px] uppercase tracking-[0.2em] text-stone-500 font-bold mb-2">01 · Source</div>
+<h2 class="headline text-2xl italic mb-3">Transcript capture</h2>
+<p class="text-stone-700 leading-7">We start from the authoritative video on the <em>This Week in Startups</em> channel. Each episode is transcribed with speaker diarization, then aligned with the YouTube timestamp so every claim has a traceable source moment.</p>
+</section>
+
+<section class="mb-10">
+<div class="text-[11px] uppercase tracking-[0.2em] text-stone-500 font-bold mb-2">02 · Entity extraction</div>
+<h2 class="headline text-2xl italic mb-3">Founders, companies, VCs, concepts</h2>
+<p class="text-stone-700 leading-7">A structured-output model reads the transcript and extracts five classes of entity: guest founders (with role + company), companies discussed (with description + metrics), venture capital firms and partners (with investment context), tactical concepts (with a canonical formula), and axioms the guest stated as general rules.</p>
+<p class="text-stone-700 leading-7 mt-3">Quantitative claims and proof points are preserved as the guest stated them, with a <span class="inline-block px-2 py-0.5 text-[10px] uppercase tracking-widest bg-green-50 text-green-700 border border-green-200 rounded-full font-bold">from transcript</span> label. These are verbatim figures that can be checked against the source video.</p>
+</section>
+
+<section class="mb-10">
+<div class="text-[11px] uppercase tracking-[0.2em] text-stone-500 font-bold mb-2">03 · Synthesis</div>
+<h2 class="headline text-2xl italic mb-3">Thesis, axioms, contrarian take, playbook</h2>
+<p class="text-stone-700 leading-7">From the entity set we synthesize the episode&rsquo;s core thesis (one paragraph), 3&ndash;5 axioms (operator rules), 2&ndash;4 decision rules (if/then heuristics), a contrarian take, a four-step operator playbook, and a one-line formula. This is the structure Karpathy proposed for an &ldquo;LLM wiki&rdquo; &mdash; compile the signal, keep the source.</p>
+</section>
+
+<section class="mb-10">
+<div class="text-[11px] uppercase tracking-[0.2em] text-stone-500 font-bold mb-2">04 · Cross-linking</div>
+<h2 class="headline text-2xl italic mb-3">Every mention becomes a hyperlink</h2>
+<p class="text-stone-700 leading-7">When a founder&rsquo;s thesis references another company, investor, or concept that exists in the library, the mention is auto-linked. This is the difference between a search index and a wiki: you can trace an axiom on one page to a founder on another to a portfolio position on a third.</p>
+</section>
+
+<section class="bg-stone-50 border border-stone-200 rounded-2xl p-8 mb-10">
+<div class="text-[11px] uppercase tracking-[0.2em] text-green-700 font-bold mb-2">Scope of this release</div>
+<h2 class="headline text-2xl italic mb-3">What the pilot slice covers</h2>
+<ul class="space-y-3 text-stone-700 leading-7">
+<li><strong>10 recent episodes</strong> (E2263&ndash;E2273), each with a full masterclass page.</li>
+<li><strong>14 founders</strong> who have spoken on the show in this window, with appearance pages.</li>
+<li><strong>13 companies</strong> with meaningful description or metrics from the transcripts.</li>
+<li><strong>5 venture firms</strong> cited as investors or commentators in these episodes.</li>
+<li><strong>20 tactical concepts</strong> &mdash; the frameworks, formulas, and heuristics articulated by guests.</li>
+</ul>
+<p class="text-stone-600 text-sm mt-6 leading-relaxed">This is intentionally a narrow slice. Thin mentions and side references do not get standalone pages; they appear only where they belong in context. The goal of the pilot is depth per page, not breadth of index.</p>
+</section>
+
+<section class="mb-10">
+<div class="text-[11px] uppercase tracking-[0.2em] text-stone-500 font-bold mb-2">Roadmap</div>
+<h2 class="headline text-2xl italic mb-3">What comes next</h2>
+<p class="text-stone-700 leading-7">Expansion will work backward through the TWiST archive one season at a time. Two additional passes are planned after corpus expansion: a <strong>citation layer</strong> (timestamp anchors on every claim) and a <strong>longitudinal view</strong> (how a founder&rsquo;s thesis or a company&rsquo;s metrics evolve across multiple appearances).</p>
+</section>
+
+<div class="border-t border-stone-200 pt-8 mt-12">
+<p class="text-sm text-stone-500 leading-relaxed">Questions, corrections, or requests for specific episodes to prioritize? The Library is a living project; feedback shapes what gets compiled next.</p>
+</div>
+</article>
+</main>
+<footer class="border-t border-stone-200 bg-[#f5f3ee] py-10 mt-20">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-6">
+<div><p class="headline text-sm font-black mb-1">TWiST Intelligence Library</p>
+<p class="text-[11px] tracking-wide text-stone-500 max-w-md leading-relaxed">A pilot knowledge graph compiled from <em>This Week in Startups</em>. This public slice covers a curated set of recent episodes; the full archive compilation is ongoing.</p></div>
+<div class="flex flex-wrap gap-x-6 gap-y-2 text-xs tracking-widest uppercase text-stone-500">
+<a href="/">Library</a><a href="/episodes/">Episodes</a><a href="/founders/">Founders</a>
+<a href="/companies/">Companies</a><a href="/vcs/">VCs</a><a href="/concepts/">Concepts</a>
+<a href="/how-it-works/">How it works</a>
+</div></div></footer>
+</body></html>
