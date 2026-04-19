@@ -2,70 +2,127 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Matt Gallich — Founder Trajectory | TWiST Intelligence Library</title>
 <meta name="description" content="Matt Gallich trajectory page with TWiST appearance history and entity connections.">
+<meta name="theme-color" content="#f9f7f2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 <style>
-body { font-family: Inter, sans-serif; }
-.headline { font-family: 'Noto Serif', serif; }
-.tag { display: inline-block; padding: 2px 10px; border-radius: 9999px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
-.tag-founder { background: #dcfce7; color: #166534; }
-.tag-company { background: #dbeafe; color: #1e40af; }
-.tag-vc { background: #fef3c7; color: #92400e; }
-.tag-concept { background: #ede9fe; color: #5b21b6; }
-.tag-episode { background: #f1f5f9; color: #334155; }
-a.entity-link { color: #166534; text-decoration: underline; text-decoration-color: #bbf7d0; text-underline-offset: 2px; }
-a.entity-link:hover { text-decoration-color: #166534; }
+html {{ scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }}
+body {{ font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif; }}
+.headline {{ font-family: 'Noto Serif', Georgia, serif; }}
+
+/* Tags */
+.tag {{ display: inline-flex; align-items: center; padding: 3px 12px; border-radius: 9999px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; transition: all .2s ease; }}
+.tag-founder {{ background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }}
+.tag-company {{ background: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; }}
+.tag-vc {{ background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }}
+.tag-concept {{ background: #ede9fe; color: #5b21b6; border: 1px solid #ddd6fe; }}
+.tag-episode {{ background: #f1f5f9; color: #334155; border: 1px solid #e2e8f0; }}
+a.tag:hover {{ transform: translateY(-1px); box-shadow: 0 2px 8px rgba(0,0,0,.08); }}
+
+/* Entity links */
+a.entity-link {{ color: #166534; text-decoration: underline; text-decoration-color: #bbf7d0; text-underline-offset: 3px; text-decoration-thickness: 2px; transition: text-decoration-color .2s ease; }}
+a.entity-link:hover {{ text-decoration-color: #166534; }}
+
+/* Cards */
+.card {{ background: white; border-radius: 1rem; border: 1px solid #e7e5e4; transition: all .25s cubic-bezier(.4,0,.2,1); }}
+.card:hover {{ border-color: #22c55e; box-shadow: 0 8px 30px rgba(0,0,0,.06); transform: translateY(-2px); }}
+
+/* Sections — subtle dividers */
+.section-divider {{ border-top: 1px solid #e7e5e4; margin: 3rem 0; }}
+
+/* Focus states */
+:focus-visible {{ outline: 2px solid #22c55e; outline-offset: 2px; border-radius: 4px; }}
+
+/* Selection */
+::selection {{ background: #dcfce7; color: #166534; }}
+
+/* Smooth image loads */
+img {{ transition: opacity .3s ease; }}
+
+/* Breadcrumb */
+.breadcrumb {{ font-size: 12px; letter-spacing: 0.04em; }}
+.breadcrumb a {{ color: #78716c; text-decoration: none; transition: color .15s; }}
+.breadcrumb a:hover {{ color: #166534; }}
+.breadcrumb span {{ color: #a8a29e; }}
 </style>
 </head><body class="bg-[#f9f7f2] text-stone-900">
-<nav class="sticky top-0 z-20 bg-[#f9f7f2]/95 backdrop-blur border-b border-stone-200">
-<div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
-<a href="/" class="headline text-xl italic font-bold text-stone-900 no-underline">TWiST Intelligence</a>
-<div class="flex flex-wrap gap-x-5 gap-y-1 text-sm font-medium text-stone-600 justify-end"><a href="/" class="hover:text-green-700">Library</a><a href="/episodes/" class="hover:text-green-700">Episodes</a><a href="/founders/" class="hover:text-green-700">Founders</a><a href="/companies/" class="hover:text-green-700">Companies</a><a href="/concepts/" class="hover:text-green-700">Concepts</a><a href="/how-it-works/" class="hover:text-green-700">How it works</a></div>
+<nav class="sticky top-0 z-20 bg-[#f9f7f2]/90 backdrop-blur-lg border-b border-stone-200/70" style="backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)">
+<div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-6">
+<a href="/" class="headline text-xl italic font-bold text-stone-900 no-underline tracking-tight flex items-center gap-2">
+<span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-green-600 text-white text-xs font-black not-italic" style="font-family:Inter,sans-serif">T</span>
+TWiST Intelligence
+</a>
+<div class="flex flex-wrap gap-x-6 gap-y-1 text-[13px] font-semibold justify-end"><a href="/" class="nav-link relative py-1 text-stone-500 hover:text-stone-900 transition-colors duration-200">Library</a><a href="/episodes/" class="nav-link relative py-1 text-stone-500 hover:text-stone-900 transition-colors duration-200">Episodes</a><a href="/founders/" class="nav-link relative py-1 text-stone-500 hover:text-stone-900 transition-colors duration-200">Founders</a><a href="/companies/" class="nav-link relative py-1 text-stone-500 hover:text-stone-900 transition-colors duration-200">Companies</a><a href="/concepts/" class="nav-link relative py-1 text-stone-500 hover:text-stone-900 transition-colors duration-200">Concepts</a><a href="/how-it-works/" class="nav-link relative py-1 text-stone-500 hover:text-stone-900 transition-colors duration-200">How it works</a></div>
 </div></nav>
-<main class="max-w-5xl mx-auto px-6 py-12">
-<div class="grid md:grid-cols-[180px,1fr] gap-8 items-start mb-8">
+<main class="max-w-5xl mx-auto px-6 py-14">
+<div class="breadcrumb mb-6"><a href="/">Library</a> <span>/</span> <a href="/founders/">Founders</a> <span>/</span> <span class="text-stone-700 font-medium">Matt Gallich</span></div>
+<div class="grid md:grid-cols-[180px,1fr] gap-8 items-start mb-10">
 <div class="w-44 h-44 text-5xl rounded-2xl bg-gradient-to-br from-stone-100 to-stone-200 border border-stone-300 flex items-center justify-center font-serif italic font-bold text-stone-600 shrink-0">MG</div>
 <div>
-<h1 class="headline text-5xl italic mb-2">Matt Gallich</h1>
-<p class="text-lg text-stone-600 mb-4">CEO and Co-founder, Astroforge</p>
-<div class="flex flex-wrap gap-2 mb-4"><a href="/episodes/e2268/" class="tag tag-episode">E2268</a> </div>
+<h1 class="headline text-4xl md:text-5xl italic mb-2">Matt Gallich</h1>
+<p class="text-lg text-stone-500 mb-5">CEO and Co-founder, Astroforge</p>
+<div class="flex flex-wrap gap-2 mb-3"><a href="/episodes/e2268/" class="tag tag-episode">E2268</a> </div>
 <div class="flex flex-wrap gap-2"><a href="/companies/astroforge/" class="tag tag-company">Astroforge</a> </div>
 </div></div>
 
-<section class="bg-white rounded-2xl p-6 border border-stone-200 mb-8">
-<h2 class="headline text-2xl italic mb-4">Key Insights from Appearances</h2>
-<ul class="list-disc pl-6 space-y-2"><li class="leading-7">Build hundreds or thousands of small, cheap spacecraft rather than one giant ship (volume scaling over single scale)</li><li class="leading-7">Be transparent with investors about failures and detailed progress; write comprehensive monthly investor letters documenting what went wrong and how you&#x27;ll fix it</li></ul>
+<section class="bg-white rounded-2xl p-6 border border-stone-200 shadow-sm mb-10">
+<div class="flex items-center gap-2 mb-4">
+<span class="w-2 h-2 rounded-full bg-stone-400"></span>
+<h2 class="text-[11px] uppercase tracking-[0.15em] text-stone-500 font-bold">Key Insights</h2>
+</div>
+<ul class="space-y-3 ml-5 list-disc marker:text-green-400"><li class="leading-7 pl-2"><span class="text-stone-700">Build hundreds or thousands of small, cheap spacecraft rather than one giant ship (volume scaling over single scale)</span></li><li class="leading-7 pl-2"><span class="text-stone-700">Be transparent with investors about failures and detailed progress; write comprehensive monthly investor letters documenting what went wrong and how you&#x27;ll fix it</span></li></ul>
 </section>
-<section class="mb-8">
-<h2 class="headline text-2xl italic mb-4">Proof Points</h2>
-<div class="grid gap-4"><div class="bg-green-50 border border-green-200 rounded-xl p-4">
+<section class="mb-10">
+<div class="flex items-center gap-2 mb-4">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<h2 class="text-[11px] uppercase tracking-[0.15em] text-green-700 font-bold">Proof Points</h2>
+</div>
+<div class="grid gap-4"><div class="bg-gradient-to-br from-green-50 to-emerald-50/50 border border-green-200 rounded-xl p-5">
 <p class="text-sm leading-6">NASA&#x27;s Bennu mission successfully mined an asteroid and returned samples ~1.5 years ago, validating feasibility and providing <a class="entity-link" href="/companies/astroforge/">Astroforge</a> with NASA team members as advisers</p>
-<p class="text-[10px] uppercase tracking-widest text-green-700 mt-2 font-bold">Proof point &middot; from transcript</p>
+<div class="flex items-center gap-1.5 mt-3">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+<p class="text-[10px] uppercase tracking-widest text-green-700 font-bold">from transcript</p>
+</div>
 </div></div>
 </section>
 
-<section class="mb-8">
-<h2 class="headline text-2xl italic mb-4">TWiST Appearance History</h2>
-<div class="space-y-4">
-<a href="/episodes/e2268/" class="block bg-white rounded-xl p-4 border border-stone-200 hover:border-green-500">
-<span class="text-xs uppercase tracking-widest text-stone-500">E2268</span>
-<p class="font-semibold mt-1">The $60 billion resource hiding in space, and the startup trying to mine it</p>
-</a>
+<section class="mb-10">
+<div class="flex items-center gap-2 mb-4">
+<span class="w-2 h-2 rounded-full bg-stone-400"></span>
+<h2 class="text-[11px] uppercase tracking-[0.15em] text-stone-500 font-bold">Appearance History</h2>
+</div>
+<div class="space-y-3">
+<a href="/episodes/e2268/" class="card group block p-5">
+<div class="flex items-center justify-between">
+<div>
+<span class="text-[10px] uppercase tracking-widest text-stone-400 font-bold">E2268</span>
+<p class="font-semibold mt-1 group-hover:text-green-800 transition-colors">The $60 billion resource hiding in space, and the startup trying to mine it</p>
+</div>
+<svg class="w-4 h-4 text-stone-300 shrink-0 group-hover:text-green-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+</div></a>
 </div>
 </section>
 
-<section>
-<h2 class="headline text-2xl italic mb-4">Related Entities</h2>
-<div class="flex flex-wrap gap-2">
-<a href="/companies/astroforge/" class="tag tag-company">Astroforge</a> 
-<a href="/vcs/y-combinator/" class="tag tag-vc">Y Combinator</a> <a href="/vcs/initialized-capital/" class="tag tag-vc">Initialized Capital</a> 
-</div>
-</section>
+<section class="mb-10"><div class="flex items-center gap-2 mb-4"><span class="w-2 h-2 rounded-full bg-stone-400"></span><h2 class="text-[11px] uppercase tracking-[0.15em] text-stone-500 font-bold">Related Entities</h2></div><div class="flex flex-wrap gap-2"><a href="/companies/astroforge/" class="tag tag-company">Astroforge</a> <a href="/vcs/y-combinator/" class="tag tag-vc">Y Combinator</a> <a href="/vcs/initialized-capital/" class="tag tag-vc">Initialized Capital</a> </div></section>
 </main>
-<footer class="border-t border-stone-200 bg-[#f5f3ee] py-10 mt-20">
-<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-6">
-<div><p class="headline text-sm font-black mb-1">TWiST Intelligence Library</p>
-<p class="text-[11px] tracking-wide text-stone-500 max-w-md leading-relaxed">A pilot knowledge graph compiled from <em>This Week in Startups</em>. This public slice covers a curated set of recent episodes; the full archive compilation is ongoing.</p></div>
-<div class="flex flex-wrap gap-x-6 gap-y-2 text-xs tracking-widest uppercase text-stone-500"><a href="/">Library</a><a href="/episodes/">Episodes</a><a href="/founders/">Founders</a><a href="/companies/">Companies</a><a href="/vcs/">VCs</a><a href="/concepts/">Concepts</a><a href="/how-it-works/">How it works</a></div>
+<footer class="border-t border-stone-200 bg-gradient-to-b from-[#f5f3ee] to-[#eceae4] py-14 mt-24">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between gap-8 mb-10">
+<div class="max-w-md">
+<div class="flex items-center gap-2 mb-3">
+<span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-green-600 text-white text-xs font-black" style="font-family:Inter,sans-serif">T</span>
+<p class="headline text-sm font-black">TWiST Intelligence Library</p>
+</div>
+<p class="text-[12px] text-stone-500 leading-relaxed">A structured knowledge graph of the venture ecosystem, compiled from This Week in Startups.</p>
+<p class="text-[11px] text-stone-400 mt-2">This is a curated public slice covering 10 recent episodes. The full archive compilation is ongoing.</p>
+</div>
+<div class="flex flex-wrap gap-x-7 gap-y-3 text-xs tracking-widest uppercase text-stone-500 items-start"><a href="/" class="hover:text-stone-800 transition-colors">Library</a><a href="/episodes/" class="hover:text-stone-800 transition-colors">Episodes</a><a href="/founders/" class="hover:text-stone-800 transition-colors">Founders</a><a href="/companies/" class="hover:text-stone-800 transition-colors">Companies</a><a href="/vcs/" class="hover:text-stone-800 transition-colors">VCs</a><a href="/concepts/" class="hover:text-stone-800 transition-colors">Concepts</a><a href="/how-it-works/" class="hover:text-stone-800 transition-colors">How it works</a></div>
+</div>
+<div class="border-t border-stone-300/50 pt-6 flex flex-col sm:flex-row justify-between gap-4 text-[11px] text-stone-400">
+<p>Compiled with structured extraction from <em>This Week in Startups</em> transcripts.</p>
+<p>Pilot v0.1 &middot; Built with care.</p>
+</div>
 </div></footer>
 </body></html>

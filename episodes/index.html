@@ -2,95 +2,184 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Episodes | TWiST Intelligence Library</title>
 <meta name="description" content="All masterclass episodes from the TWiST intelligence library.">
+<meta name="theme-color" content="#f9f7f2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 <style>
-body { font-family: Inter, sans-serif; }
-.headline { font-family: 'Noto Serif', serif; }
-.tag { display: inline-block; padding: 2px 10px; border-radius: 9999px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
-.tag-founder { background: #dcfce7; color: #166534; }
-.tag-company { background: #dbeafe; color: #1e40af; }
-.tag-vc { background: #fef3c7; color: #92400e; }
-.tag-concept { background: #ede9fe; color: #5b21b6; }
-.tag-episode { background: #f1f5f9; color: #334155; }
-a.entity-link { color: #166534; text-decoration: underline; text-decoration-color: #bbf7d0; text-underline-offset: 2px; }
-a.entity-link:hover { text-decoration-color: #166534; }
+html {{ scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }}
+body {{ font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif; }}
+.headline {{ font-family: 'Noto Serif', Georgia, serif; }}
+
+/* Tags */
+.tag {{ display: inline-flex; align-items: center; padding: 3px 12px; border-radius: 9999px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; transition: all .2s ease; }}
+.tag-founder {{ background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }}
+.tag-company {{ background: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; }}
+.tag-vc {{ background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }}
+.tag-concept {{ background: #ede9fe; color: #5b21b6; border: 1px solid #ddd6fe; }}
+.tag-episode {{ background: #f1f5f9; color: #334155; border: 1px solid #e2e8f0; }}
+a.tag:hover {{ transform: translateY(-1px); box-shadow: 0 2px 8px rgba(0,0,0,.08); }}
+
+/* Entity links */
+a.entity-link {{ color: #166534; text-decoration: underline; text-decoration-color: #bbf7d0; text-underline-offset: 3px; text-decoration-thickness: 2px; transition: text-decoration-color .2s ease; }}
+a.entity-link:hover {{ text-decoration-color: #166534; }}
+
+/* Cards */
+.card {{ background: white; border-radius: 1rem; border: 1px solid #e7e5e4; transition: all .25s cubic-bezier(.4,0,.2,1); }}
+.card:hover {{ border-color: #22c55e; box-shadow: 0 8px 30px rgba(0,0,0,.06); transform: translateY(-2px); }}
+
+/* Sections — subtle dividers */
+.section-divider {{ border-top: 1px solid #e7e5e4; margin: 3rem 0; }}
+
+/* Focus states */
+:focus-visible {{ outline: 2px solid #22c55e; outline-offset: 2px; border-radius: 4px; }}
+
+/* Selection */
+::selection {{ background: #dcfce7; color: #166534; }}
+
+/* Smooth image loads */
+img {{ transition: opacity .3s ease; }}
+
+/* Breadcrumb */
+.breadcrumb {{ font-size: 12px; letter-spacing: 0.04em; }}
+.breadcrumb a {{ color: #78716c; text-decoration: none; transition: color .15s; }}
+.breadcrumb a:hover {{ color: #166534; }}
+.breadcrumb span {{ color: #a8a29e; }}
 </style>
 </head><body class="bg-[#f9f7f2] text-stone-900">
-<nav class="sticky top-0 z-20 bg-[#f9f7f2]/95 backdrop-blur border-b border-stone-200">
-<div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
-<a href="/" class="headline text-xl italic font-bold text-stone-900 no-underline">TWiST Intelligence</a>
-<div class="flex flex-wrap gap-x-5 gap-y-1 text-sm font-medium text-stone-600 justify-end"><a href="/" class="hover:text-green-700">Library</a><a href="/episodes/" class="hover:text-green-700">Episodes</a><a href="/founders/" class="hover:text-green-700">Founders</a><a href="/companies/" class="hover:text-green-700">Companies</a><a href="/concepts/" class="hover:text-green-700">Concepts</a><a href="/how-it-works/" class="hover:text-green-700">How it works</a></div>
+<nav class="sticky top-0 z-20 bg-[#f9f7f2]/90 backdrop-blur-lg border-b border-stone-200/70" style="backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)">
+<div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-6">
+<a href="/" class="headline text-xl italic font-bold text-stone-900 no-underline tracking-tight flex items-center gap-2">
+<span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-green-600 text-white text-xs font-black not-italic" style="font-family:Inter,sans-serif">T</span>
+TWiST Intelligence
+</a>
+<div class="flex flex-wrap gap-x-6 gap-y-1 text-[13px] font-semibold justify-end"><a href="/" class="nav-link relative py-1 text-stone-500 hover:text-stone-900 transition-colors duration-200">Library</a><a href="/episodes/" class="nav-link relative py-1 text-stone-500 hover:text-stone-900 transition-colors duration-200">Episodes</a><a href="/founders/" class="nav-link relative py-1 text-stone-500 hover:text-stone-900 transition-colors duration-200">Founders</a><a href="/companies/" class="nav-link relative py-1 text-stone-500 hover:text-stone-900 transition-colors duration-200">Companies</a><a href="/concepts/" class="nav-link relative py-1 text-stone-500 hover:text-stone-900 transition-colors duration-200">Concepts</a><a href="/how-it-works/" class="nav-link relative py-1 text-stone-500 hover:text-stone-900 transition-colors duration-200">How it works</a></div>
 </div></nav>
-<main class="max-w-5xl mx-auto px-6 py-12">
-<h1 class="headline text-5xl italic mb-2">Masterclass Episodes</h1>
-<p class="text-stone-600 mb-8">10 episodes analyzed with entity extraction, axioms, and operator playbooks.</p>
-<div class="grid md:grid-cols-2 gap-6"><a href="/episodes/e2273/" class="block bg-white rounded-2xl border border-stone-200 overflow-hidden hover:border-green-500 transition-colors">
-<img class="w-full aspect-video object-cover" src="https://img.youtube.com/vi/1ORdeSPOy2k/hqdefault.jpg">
+<main class="max-w-5xl mx-auto px-6 py-14">
+<div class="mb-10">
+<div class="breadcrumb mb-4"><a href="/">Library</a> <span>/</span> <span class="text-stone-700 font-medium">Episodes</span></div>
+<h1 class="headline text-5xl italic mb-3">Masterclass Episodes</h1>
+<p class="text-lg text-stone-500 max-w-2xl">10 episodes distilled into structured knowledge — each with entity extraction, axioms, and operator playbooks.</p>
+</div>
+<div class="grid md:grid-cols-2 gap-6"><a href="/episodes/e2273/" class="card group block overflow-hidden">
+<div class="aspect-video overflow-hidden"><img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://img.youtube.com/vi/1ORdeSPOy2k/hqdefault.jpg" loading="lazy"></div>
 <div class="p-6">
-<div class="text-xs uppercase tracking-widest text-stone-500 mb-2">E2273</div>
-<h2 class="headline text-xl italic mb-2">Anthropic’s Mythos is a cyber-weapon, so you can’t have it</h2>
+<div class="flex items-center gap-2 mb-3">
+<span class="text-[10px] uppercase tracking-widest text-stone-400 font-bold">E2273</span>
+<span class="w-1 h-1 rounded-full bg-stone-300"></span>
+<span class="text-[10px] text-stone-400">Masterclass</span>
+</div>
+<h2 class="headline text-xl italic mb-2 leading-snug group-hover:text-green-800 transition-colors">Anthropic’s Mythos is a cyber-weapon, so you can’t have it</h2>
 
-</div></a><a href="/episodes/e2272/" class="block bg-white rounded-2xl border border-stone-200 overflow-hidden hover:border-green-500 transition-colors">
-<img class="w-full aspect-video object-cover" src="https://img.youtube.com/vi/g5LxEPGLDsc/hqdefault.jpg">
+</div></a><a href="/episodes/e2272/" class="card group block overflow-hidden">
+<div class="aspect-video overflow-hidden"><img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://img.youtube.com/vi/g5LxEPGLDsc/hqdefault.jpg" loading="lazy"></div>
 <div class="p-6">
-<div class="text-xs uppercase tracking-widest text-stone-500 mb-2">E2272</div>
-<h2 class="headline text-xl italic mb-2">3 AI Agents That Actually Replaced Human Jobs</h2>
+<div class="flex items-center gap-2 mb-3">
+<span class="text-[10px] uppercase tracking-widest text-stone-400 font-bold">E2272</span>
+<span class="w-1 h-1 rounded-full bg-stone-300"></span>
+<span class="text-[10px] text-stone-400">Masterclass</span>
+</div>
+<h2 class="headline text-xl italic mb-2 leading-snug group-hover:text-green-800 transition-colors">3 AI Agents That Actually Replaced Human Jobs</h2>
 <p class="text-sm text-stone-500">Ryan Carson, Alex Finn, Yazin Ali Raheem</p>
-</div></a><a href="/episodes/e2271/" class="block bg-white rounded-2xl border border-stone-200 overflow-hidden hover:border-green-500 transition-colors">
-<img class="w-full aspect-video object-cover" src="https://img.youtube.com/vi/g5LxEPGLDsc/hqdefault.jpg">
+</div></a><a href="/episodes/e2271/" class="card group block overflow-hidden">
+<div class="aspect-video overflow-hidden"><img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://img.youtube.com/vi/g5LxEPGLDsc/hqdefault.jpg" loading="lazy"></div>
 <div class="p-6">
-<div class="text-xs uppercase tracking-widest text-stone-500 mb-2">E2271</div>
-<h2 class="headline text-xl italic mb-2">AI Rebuilt Every YC W26 Startup. Should Founders Be Scared</h2>
+<div class="flex items-center gap-2 mb-3">
+<span class="text-[10px] uppercase tracking-widest text-stone-400 font-bold">E2271</span>
+<span class="w-1 h-1 rounded-full bg-stone-300"></span>
+<span class="text-[10px] text-stone-400">Masterclass</span>
+</div>
+<h2 class="headline text-xl italic mb-2 leading-snug group-hover:text-green-800 transition-colors">AI Rebuilt Every YC W26 Startup. Should Founders Be Scared</h2>
 <p class="text-sm text-stone-500">Marique Kazan</p>
-</div></a><a href="/episodes/e2270/" class="block bg-white rounded-2xl border border-stone-200 overflow-hidden hover:border-green-500 transition-colors">
-<img class="w-full aspect-video object-cover" src="https://img.youtube.com/vi/aY8KnynU6MY/hqdefault.jpg">
+</div></a><a href="/episodes/e2270/" class="card group block overflow-hidden">
+<div class="aspect-video overflow-hidden"><img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://img.youtube.com/vi/aY8KnynU6MY/hqdefault.jpg" loading="lazy"></div>
 <div class="p-6">
-<div class="text-xs uppercase tracking-widest text-stone-500 mb-2">E2270</div>
-<h2 class="headline text-xl italic mb-2">Venture Roundtable: SpaceX IPO, AI&#x27;s PR Crisis, and the Defense Tech Bubble</h2>
+<div class="flex items-center gap-2 mb-3">
+<span class="text-[10px] uppercase tracking-widest text-stone-400 font-bold">E2270</span>
+<span class="w-1 h-1 rounded-full bg-stone-300"></span>
+<span class="text-[10px] text-stone-400">Masterclass</span>
+</div>
+<h2 class="headline text-xl italic mb-2 leading-snug group-hover:text-green-800 transition-colors">Venture Roundtable: SpaceX IPO, AI&#x27;s PR Crisis, and the Defense Tech Bubble</h2>
 <p class="text-sm text-stone-500">Delian Asparouhov, Sal Chur, Larsson Jensen</p>
-</div></a><a href="/episodes/e2269/" class="block bg-white rounded-2xl border border-stone-200 overflow-hidden hover:border-green-500 transition-colors">
-<img class="w-full aspect-video object-cover" src="https://img.youtube.com/vi/UN_bPV4kNDY/hqdefault.jpg">
+</div></a><a href="/episodes/e2269/" class="card group block overflow-hidden">
+<div class="aspect-video overflow-hidden"><img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://img.youtube.com/vi/UN_bPV4kNDY/hqdefault.jpg" loading="lazy"></div>
 <div class="p-6">
-<div class="text-xs uppercase tracking-widest text-stone-500 mb-2">E2269</div>
-<h2 class="headline text-xl italic mb-2">The 5-Step Framework for AI Agents That Improve While You Sleep</h2>
+<div class="flex items-center gap-2 mb-3">
+<span class="text-[10px] uppercase tracking-widest text-stone-400 font-bold">E2269</span>
+<span class="w-1 h-1 rounded-full bg-stone-300"></span>
+<span class="text-[10px] text-stone-400">Masterclass</span>
+</div>
+<h2 class="headline text-xl italic mb-2 leading-snug group-hover:text-green-800 transition-colors">The 5-Step Framework for AI Agents That Improve While You Sleep</h2>
 <p class="text-sm text-stone-500">Shubham Sabu</p>
-</div></a><a href="/episodes/e2268/" class="block bg-white rounded-2xl border border-stone-200 overflow-hidden hover:border-green-500 transition-colors">
-<img class="w-full aspect-video object-cover" src="https://img.youtube.com/vi/1aBLe69ZCVs/hqdefault.jpg">
+</div></a><a href="/episodes/e2268/" class="card group block overflow-hidden">
+<div class="aspect-video overflow-hidden"><img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://img.youtube.com/vi/1aBLe69ZCVs/hqdefault.jpg" loading="lazy"></div>
 <div class="p-6">
-<div class="text-xs uppercase tracking-widest text-stone-500 mb-2">E2268</div>
-<h2 class="headline text-xl italic mb-2">The $60 billion resource hiding in space, and the startup trying to mine it</h2>
+<div class="flex items-center gap-2 mb-3">
+<span class="text-[10px] uppercase tracking-widest text-stone-400 font-bold">E2268</span>
+<span class="w-1 h-1 rounded-full bg-stone-300"></span>
+<span class="text-[10px] text-stone-400">Masterclass</span>
+</div>
+<h2 class="headline text-xl italic mb-2 leading-snug group-hover:text-green-800 transition-colors">The $60 billion resource hiding in space, and the startup trying to mine it</h2>
 <p class="text-sm text-stone-500">Matt Gallich</p>
-</div></a><a href="/episodes/e2267/" class="block bg-white rounded-2xl border border-stone-200 overflow-hidden hover:border-green-500 transition-colors">
-<img class="w-full aspect-video object-cover" src="https://img.youtube.com/vi/TN2RmNuX4-k/hqdefault.jpg">
+</div></a><a href="/episodes/e2267/" class="card group block overflow-hidden">
+<div class="aspect-video overflow-hidden"><img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://img.youtube.com/vi/TN2RmNuX4-k/hqdefault.jpg" loading="lazy"></div>
 <div class="p-6">
-<div class="text-xs uppercase tracking-widest text-stone-500 mb-2">E2267</div>
-<h2 class="headline text-xl italic mb-2">This Bittensor Subnet Could Cut Drug Discovery Costs in HALF</h2>
+<div class="flex items-center gap-2 mb-3">
+<span class="text-[10px] uppercase tracking-widest text-stone-400 font-bold">E2267</span>
+<span class="w-1 h-1 rounded-full bg-stone-300"></span>
+<span class="text-[10px] text-stone-400">Masterclass</span>
+</div>
+<h2 class="headline text-xl italic mb-2 leading-snug group-hover:text-green-800 transition-colors">This Bittensor Subnet Could Cut Drug Discovery Costs in HALF</h2>
 <p class="text-sm text-stone-500">Michaela Bazo, Pedro Penna</p>
-</div></a><a href="/episodes/e2266/" class="block bg-white rounded-2xl border border-stone-200 overflow-hidden hover:border-green-500 transition-colors">
-<img class="w-full aspect-video object-cover" src="https://img.youtube.com/vi/gjRt4eUyiYc/hqdefault.jpg">
+</div></a><a href="/episodes/e2266/" class="card group block overflow-hidden">
+<div class="aspect-video overflow-hidden"><img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://img.youtube.com/vi/gjRt4eUyiYc/hqdefault.jpg" loading="lazy"></div>
 <div class="p-6">
-<div class="text-xs uppercase tracking-widest text-stone-500 mb-2">E2266</div>
-<h2 class="headline text-xl italic mb-2">32 Million Dollar Fraud? Delve Scandal</h2>
+<div class="flex items-center gap-2 mb-3">
+<span class="text-[10px] uppercase tracking-widest text-stone-400 font-bold">E2266</span>
+<span class="w-1 h-1 rounded-full bg-stone-300"></span>
+<span class="text-[10px] text-stone-400">Masterclass</span>
+</div>
+<h2 class="headline text-xl italic mb-2 leading-snug group-hover:text-green-800 transition-colors">32 Million Dollar Fraud? Delve Scandal</h2>
 <p class="text-sm text-stone-500">Ryan Madavi</p>
-</div></a><a href="/episodes/e2265/" class="block bg-white rounded-2xl border border-stone-200 overflow-hidden hover:border-green-500 transition-colors">
-<img class="w-full aspect-video object-cover" src="https://img.youtube.com/vi/kz24Ga0Ig2g/hqdefault.jpg">
+</div></a><a href="/episodes/e2265/" class="card group block overflow-hidden">
+<div class="aspect-video overflow-hidden"><img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://img.youtube.com/vi/kz24Ga0Ig2g/hqdefault.jpg" loading="lazy"></div>
 <div class="p-6">
-<div class="text-xs uppercase tracking-widest text-stone-500 mb-2">E2265</div>
-<h2 class="headline text-xl italic mb-2">The Drone Company Everyone Thought Was Illegal (Now Worth $4B+)</h2>
+<div class="flex items-center gap-2 mb-3">
+<span class="text-[10px] uppercase tracking-widest text-stone-400 font-bold">E2265</span>
+<span class="w-1 h-1 rounded-full bg-stone-300"></span>
+<span class="text-[10px] text-stone-400">Masterclass</span>
+</div>
+<h2 class="headline text-xl italic mb-2 leading-snug group-hover:text-green-800 transition-colors">The Drone Company Everyone Thought Was Illegal (Now Worth $4B+)</h2>
 <p class="text-sm text-stone-500">Keller Clifton</p>
-</div></a><a href="/episodes/e2263/" class="block bg-white rounded-2xl border border-stone-200 overflow-hidden hover:border-green-500 transition-colors">
-<img class="w-full aspect-video object-cover" src="https://img.youtube.com/vi/1p4-12k_EbE/hqdefault.jpg">
+</div></a><a href="/episodes/e2263/" class="card group block overflow-hidden">
+<div class="aspect-video overflow-hidden"><img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://img.youtube.com/vi/1p4-12k_EbE/hqdefault.jpg" loading="lazy"></div>
 <div class="p-6">
-<div class="text-xs uppercase tracking-widest text-stone-500 mb-2">E2263</div>
-<h2 class="headline text-xl italic mb-2">Are Brain-Computer Interfaces Actually Ready for Humans?</h2>
+<div class="flex items-center gap-2 mb-3">
+<span class="text-[10px] uppercase tracking-widest text-stone-400 font-bold">E2263</span>
+<span class="w-1 h-1 rounded-full bg-stone-300"></span>
+<span class="text-[10px] text-stone-400">Masterclass</span>
+</div>
+<h2 class="headline text-xl italic mb-2 leading-snug group-hover:text-green-800 transition-colors">Are Brain-Computer Interfaces Actually Ready for Humans?</h2>
 <p class="text-sm text-stone-500">Matt Angel</p>
 </div></a></div>
 </main>
-<footer class="border-t border-stone-200 bg-[#f5f3ee] py-10 mt-20">
-<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-6">
-<div><p class="headline text-sm font-black mb-1">TWiST Intelligence Library</p>
-<p class="text-[11px] tracking-wide text-stone-500 max-w-md leading-relaxed">A pilot knowledge graph compiled from <em>This Week in Startups</em>. This public slice covers a curated set of recent episodes; the full archive compilation is ongoing.</p></div>
-<div class="flex flex-wrap gap-x-6 gap-y-2 text-xs tracking-widest uppercase text-stone-500"><a href="/">Library</a><a href="/episodes/">Episodes</a><a href="/founders/">Founders</a><a href="/companies/">Companies</a><a href="/vcs/">VCs</a><a href="/concepts/">Concepts</a><a href="/how-it-works/">How it works</a></div>
+<footer class="border-t border-stone-200 bg-gradient-to-b from-[#f5f3ee] to-[#eceae4] py-14 mt-24">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between gap-8 mb-10">
+<div class="max-w-md">
+<div class="flex items-center gap-2 mb-3">
+<span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-green-600 text-white text-xs font-black" style="font-family:Inter,sans-serif">T</span>
+<p class="headline text-sm font-black">TWiST Intelligence Library</p>
+</div>
+<p class="text-[12px] text-stone-500 leading-relaxed">A structured knowledge graph of the venture ecosystem, compiled from This Week in Startups.</p>
+<p class="text-[11px] text-stone-400 mt-2">This is a curated public slice covering 10 recent episodes. The full archive compilation is ongoing.</p>
+</div>
+<div class="flex flex-wrap gap-x-7 gap-y-3 text-xs tracking-widest uppercase text-stone-500 items-start"><a href="/" class="hover:text-stone-800 transition-colors">Library</a><a href="/episodes/" class="hover:text-stone-800 transition-colors">Episodes</a><a href="/founders/" class="hover:text-stone-800 transition-colors">Founders</a><a href="/companies/" class="hover:text-stone-800 transition-colors">Companies</a><a href="/vcs/" class="hover:text-stone-800 transition-colors">VCs</a><a href="/concepts/" class="hover:text-stone-800 transition-colors">Concepts</a><a href="/how-it-works/" class="hover:text-stone-800 transition-colors">How it works</a></div>
+</div>
+<div class="border-t border-stone-300/50 pt-6 flex flex-col sm:flex-row justify-between gap-4 text-[11px] text-stone-400">
+<p>Compiled with structured extraction from <em>This Week in Startups</em> transcripts.</p>
+<p>Pilot v0.1 &middot; Built with care.</p>
+</div>
 </div></footer>
 </body></html>

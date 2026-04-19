@@ -2,84 +2,209 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>E2273: Anthropic’s Mythos is a cyber-weapon, so you can’t have it | TWiST Intelligence Library</title>
 <meta name="description" content="E2273 masterclass with entity graph, axioms, and operator playbook.">
+<meta name="theme-color" content="#f9f7f2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 <style>
-body { font-family: Inter, sans-serif; }
-.headline { font-family: 'Noto Serif', serif; }
-.tag { display: inline-block; padding: 2px 10px; border-radius: 9999px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
-.tag-founder { background: #dcfce7; color: #166534; }
-.tag-company { background: #dbeafe; color: #1e40af; }
-.tag-vc { background: #fef3c7; color: #92400e; }
-.tag-concept { background: #ede9fe; color: #5b21b6; }
-.tag-episode { background: #f1f5f9; color: #334155; }
-a.entity-link { color: #166534; text-decoration: underline; text-decoration-color: #bbf7d0; text-underline-offset: 2px; }
-a.entity-link:hover { text-decoration-color: #166534; }
+html {{ scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }}
+body {{ font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif; }}
+.headline {{ font-family: 'Noto Serif', Georgia, serif; }}
+
+/* Tags */
+.tag {{ display: inline-flex; align-items: center; padding: 3px 12px; border-radius: 9999px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; transition: all .2s ease; }}
+.tag-founder {{ background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }}
+.tag-company {{ background: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; }}
+.tag-vc {{ background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }}
+.tag-concept {{ background: #ede9fe; color: #5b21b6; border: 1px solid #ddd6fe; }}
+.tag-episode {{ background: #f1f5f9; color: #334155; border: 1px solid #e2e8f0; }}
+a.tag:hover {{ transform: translateY(-1px); box-shadow: 0 2px 8px rgba(0,0,0,.08); }}
+
+/* Entity links */
+a.entity-link {{ color: #166534; text-decoration: underline; text-decoration-color: #bbf7d0; text-underline-offset: 3px; text-decoration-thickness: 2px; transition: text-decoration-color .2s ease; }}
+a.entity-link:hover {{ text-decoration-color: #166534; }}
+
+/* Cards */
+.card {{ background: white; border-radius: 1rem; border: 1px solid #e7e5e4; transition: all .25s cubic-bezier(.4,0,.2,1); }}
+.card:hover {{ border-color: #22c55e; box-shadow: 0 8px 30px rgba(0,0,0,.06); transform: translateY(-2px); }}
+
+/* Sections — subtle dividers */
+.section-divider {{ border-top: 1px solid #e7e5e4; margin: 3rem 0; }}
+
+/* Focus states */
+:focus-visible {{ outline: 2px solid #22c55e; outline-offset: 2px; border-radius: 4px; }}
+
+/* Selection */
+::selection {{ background: #dcfce7; color: #166534; }}
+
+/* Smooth image loads */
+img {{ transition: opacity .3s ease; }}
+
+/* Breadcrumb */
+.breadcrumb {{ font-size: 12px; letter-spacing: 0.04em; }}
+.breadcrumb a {{ color: #78716c; text-decoration: none; transition: color .15s; }}
+.breadcrumb a:hover {{ color: #166534; }}
+.breadcrumb span {{ color: #a8a29e; }}
 </style>
 </head><body class="bg-[#f9f7f2] text-stone-900">
-<nav class="sticky top-0 z-20 bg-[#f9f7f2]/95 backdrop-blur border-b border-stone-200">
-<div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
-<a href="/" class="headline text-xl italic font-bold text-stone-900 no-underline">TWiST Intelligence</a>
-<div class="flex flex-wrap gap-x-5 gap-y-1 text-sm font-medium text-stone-600 justify-end"><a href="/" class="hover:text-green-700">Library</a><a href="/episodes/" class="hover:text-green-700">Episodes</a><a href="/founders/" class="hover:text-green-700">Founders</a><a href="/companies/" class="hover:text-green-700">Companies</a><a href="/concepts/" class="hover:text-green-700">Concepts</a><a href="/how-it-works/" class="hover:text-green-700">How it works</a></div>
+<nav class="sticky top-0 z-20 bg-[#f9f7f2]/90 backdrop-blur-lg border-b border-stone-200/70" style="backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)">
+<div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-6">
+<a href="/" class="headline text-xl italic font-bold text-stone-900 no-underline tracking-tight flex items-center gap-2">
+<span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-green-600 text-white text-xs font-black not-italic" style="font-family:Inter,sans-serif">T</span>
+TWiST Intelligence
+</a>
+<div class="flex flex-wrap gap-x-6 gap-y-1 text-[13px] font-semibold justify-end"><a href="/" class="nav-link relative py-1 text-stone-500 hover:text-stone-900 transition-colors duration-200">Library</a><a href="/episodes/" class="nav-link relative py-1 text-stone-500 hover:text-stone-900 transition-colors duration-200">Episodes</a><a href="/founders/" class="nav-link relative py-1 text-stone-500 hover:text-stone-900 transition-colors duration-200">Founders</a><a href="/companies/" class="nav-link relative py-1 text-stone-500 hover:text-stone-900 transition-colors duration-200">Companies</a><a href="/concepts/" class="nav-link relative py-1 text-stone-500 hover:text-stone-900 transition-colors duration-200">Concepts</a><a href="/how-it-works/" class="nav-link relative py-1 text-stone-500 hover:text-stone-900 transition-colors duration-200">How it works</a></div>
 </div></nav>
-<main class="max-w-5xl mx-auto px-6 py-12">
-<h1 class="headline text-5xl italic mb-4">E2273: Anthropic’s Mythos is a cyber-weapon, so you can’t have it</h1>
-<img class="w-full rounded-2xl mb-6 border border-stone-200" src="https://img.youtube.com/vi/1ORdeSPOy2k/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/1ORdeSPOy2k/hqdefault.jpg'" alt="Anthropic’s Mythos is a cyber-weapon, so you can’t have it">
-<div class="flex gap-3 mb-8"><a class="inline-block px-4 py-2 bg-green-600 text-white rounded-lg font-semibold" href="https://www.youtube.com/watch?v=1ORdeSPOy2k" target="_blank">Watch Episode</a><a class="inline-block px-4 py-2 bg-stone-200 text-stone-700 rounded-lg font-semibold" href="/episodes/">All Episodes</a></div>
-<section class="mb-10 bg-white rounded-2xl p-8 border border-stone-200">
-<h2 class="headline text-2xl italic mb-4">Core Thesis</h2>
-<p class="leading-7 text-stone-700 text-lg"><a class="entity-link" href="/companies/anthropic/">Anthropic</a> has created Mythos, an AI model so capable at finding and exploiting security vulnerabilities that it constitutes a &#x27;cyber-weapon&#x27; - hence it cannot be publicly released. The model can find zero-day exploits in decades-old critical infrastructure (FFmpeg, OpenBSD) and chain multiple vulnerabilities into sophisticated attacks. Anthropic is taking the responsible route by withholding release and instead partnering with major infrastructure companies through Project Glass Wing to harden systems defensively. This creates a new two-tier AI economy where only sufficiently important companies get access to frontier capabilities.</p>
+<main class="max-w-5xl mx-auto px-6 py-14">
+<div class="breadcrumb mb-6"><a href="/">Library</a> <span>/</span> <a href="/episodes/">Episodes</a> <span>/</span> <span class="text-stone-700 font-medium">E2273</span></div>
+<h1 class="headline text-4xl md:text-5xl italic mb-5 leading-tight">Anthropic’s Mythos is a cyber-weapon, so you can’t have it</h1>
+<div class="relative rounded-2xl overflow-hidden mb-6 border border-stone-200 shadow-sm">
+<img class="w-full" src="https://img.youtube.com/vi/1ORdeSPOy2k/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/1ORdeSPOy2k/hqdefault.jpg'" alt="Anthropic’s Mythos is a cyber-weapon, so you can’t have it" loading="lazy">
+<div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none"></div>
+<div class="absolute bottom-4 left-4 flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-3 py-1.5 bg-white/90 backdrop-blur rounded-full text-[11px] font-bold uppercase tracking-widest text-stone-700">E2273 &middot; Masterclass</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-3 mb-10">
+<a class="inline-flex items-center gap-2 px-5 py-2.5 bg-green-600 hover:bg-green-700 text-white rounded-xl font-semibold transition-colors shadow-sm" href="https://www.youtube.com/watch?v=1ORdeSPOy2k" target="_blank">
+<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+Watch Episode</a>
+<a class="inline-flex items-center px-5 py-2.5 bg-white border border-stone-200 text-stone-700 rounded-xl font-semibold hover:border-stone-400 transition-colors" href="/episodes/">All Episodes</a>
+</div>
+<section class="mb-12 bg-white rounded-2xl p-8 border border-stone-200 shadow-sm">
+<div class="flex items-center gap-2 mb-4">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<h2 class="text-[11px] uppercase tracking-[0.15em] text-green-700 font-bold">Core Thesis</h2>
+</div>
+<p class="leading-8 text-stone-700 text-lg"><a class="entity-link" href="/companies/anthropic/">Anthropic</a> has created Mythos, an AI model so capable at finding and exploiting security vulnerabilities that it constitutes a &#x27;cyber-weapon&#x27; - hence it cannot be publicly released. The model can find zero-day exploits in decades-old critical infrastructure (FFmpeg, OpenBSD) and chain multiple vulnerabilities into sophisticated attacks. Anthropic is taking the responsible route by withholding release and instead partnering with major infrastructure companies through Project Glass Wing to harden systems defensively. This creates a new two-tier AI economy where only sufficiently important companies get access to frontier capabilities.</p>
 </section>
-<section class="mb-10">
-<h2 class="headline text-2xl italic mb-4">Axioms</h2>
-<ul class="list-disc pl-6 space-y-3"><li class="leading-7">Capabilities that could break digital infrastructure cannot be released without risk mitigation</li><li class="leading-7">Chaining multiple vulnerabilities creates sophisticated attacks that humans miss</li><li class="leading-7">Defensive access to frontier models is now a prerequisite for infrastructure security</li><li class="leading-7">The most powerful AI models will increasingly be restricted to consortiums rather than publicly released</li><li class="leading-7">Government and infrastructure resilience now depend on private AI lab responsible behavior</li></ul>
+<section class="mb-12">
+<div class="flex items-center gap-2 mb-5">
+<span class="w-2 h-2 rounded-full bg-stone-400"></span>
+<h2 class="text-[11px] uppercase tracking-[0.15em] text-stone-500 font-bold">Axioms</h2>
+</div>
+<ul class="space-y-3 ml-5 list-disc marker:text-green-400"><li class="leading-7 pl-2">
+<span class="text-stone-700">Capabilities that could break digital infrastructure cannot be released without risk mitigation</span>
+</li><li class="leading-7 pl-2">
+<span class="text-stone-700">Chaining multiple vulnerabilities creates sophisticated attacks that humans miss</span>
+</li><li class="leading-7 pl-2">
+<span class="text-stone-700">Defensive access to frontier models is now a prerequisite for infrastructure security</span>
+</li><li class="leading-7 pl-2">
+<span class="text-stone-700">The most powerful AI models will increasingly be restricted to consortiums rather than publicly released</span>
+</li><li class="leading-7 pl-2">
+<span class="text-stone-700">Government and infrastructure resilience now depend on private AI lab responsible behavior</span>
+</li></ul>
 </section>
-<section class="mb-10">
-<h2 class="headline text-2xl italic mb-4">Decision Rules</h2>
-<ul class="space-y-3 pl-6"><li class="leading-7">If your infrastructure is not part of a major hardening consortium, assume it&#x27;s vulnerable to frontier AI exploit-finding</li><li class="leading-7">If your security strategy assumes &#x27;security through obscurity&#x27;, that assumption is now broken</li></ul>
-</section>
-<section class="mb-10">
-<h2 class="headline text-2xl italic mb-4">Proof Points</h2>
-<div class="grid gap-4"><div class="bg-green-50 border border-green-200 rounded-xl p-4">
-<p class="text-sm leading-6 text-stone-700">Mythos found exploits in OpenBSD, famously one of the most secure pieces of software</p>
-<p class="text-[10px] uppercase tracking-widest text-green-700 mt-2 font-bold">Proof point &middot; from transcript</p>
-</div><div class="bg-green-50 border border-green-200 rounded-xl p-4">
-<p class="text-sm leading-6 text-stone-700">Mythos found vulnerabilities in FFmpeg, a critical piece of open-source video infrastructure</p>
-<p class="text-[10px] uppercase tracking-widest text-green-700 mt-2 font-bold">Proof point &middot; from transcript</p>
-</div><div class="bg-green-50 border border-green-200 rounded-xl p-4">
-<p class="text-sm leading-6 text-stone-700">Mythos can chain together 3-5 different vulnerabilities to create novel sophisticated attacks</p>
-<p class="text-[10px] uppercase tracking-widest text-green-700 mt-2 font-bold">Proof point &middot; from transcript</p>
-</div><div class="bg-green-50 border border-green-200 rounded-xl p-4">
-<p class="text-sm leading-6 text-stone-700"><a class="entity-link" href="/companies/anthropic/">Anthropic</a> is providing $100M in compute credits for defensive hardening via Project Glass Wing</p>
-<p class="text-[10px] uppercase tracking-widest text-green-700 mt-2 font-bold">Proof point &middot; from transcript</p>
+<section class="mb-12">
+<div class="flex items-center gap-2 mb-5">
+<span class="w-2 h-2 rounded-full bg-amber-400"></span>
+<h2 class="text-[11px] uppercase tracking-[0.15em] text-amber-700 font-bold">Decision Rules</h2>
+</div>
+<div class="space-y-4"><div class="flex gap-3 items-start">
+<span class="shrink-0 mt-1 w-5 h-5 rounded-md bg-amber-100 border border-amber-200 flex items-center justify-center text-amber-700 text-[10px] font-black">1</span>
+<p class="leading-7 text-stone-700">If your infrastructure is not part of a major hardening consortium, assume it&#x27;s vulnerable to frontier AI exploit-finding</p>
+</div><div class="flex gap-3 items-start">
+<span class="shrink-0 mt-1 w-5 h-5 rounded-md bg-amber-100 border border-amber-200 flex items-center justify-center text-amber-700 text-[10px] font-black">2</span>
+<p class="leading-7 text-stone-700">If your security strategy assumes &#x27;security through obscurity&#x27;, that assumption is now broken</p>
 </div></div>
 </section>
-<section class="mb-10 bg-orange-50 border border-orange-200 rounded-2xl p-8">
-<h2 class="headline text-2xl italic mb-4">Contrarian Take</h2>
+<section class="mb-12">
+<div class="flex items-center gap-2 mb-5">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<h2 class="text-[11px] uppercase tracking-[0.15em] text-green-700 font-bold">Proof Points</h2>
+</div>
+<div class="grid gap-4"><div class="bg-gradient-to-br from-green-50 to-emerald-50/50 border border-green-200 rounded-xl p-5">
+<p class="text-sm leading-6 text-stone-700">Mythos found exploits in OpenBSD, famously one of the most secure pieces of software</p>
+<div class="flex items-center gap-1.5 mt-3">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+<p class="text-[10px] uppercase tracking-widest text-green-700 font-bold">from transcript</p>
+</div>
+</div><div class="bg-gradient-to-br from-green-50 to-emerald-50/50 border border-green-200 rounded-xl p-5">
+<p class="text-sm leading-6 text-stone-700">Mythos found vulnerabilities in FFmpeg, a critical piece of open-source video infrastructure</p>
+<div class="flex items-center gap-1.5 mt-3">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+<p class="text-[10px] uppercase tracking-widest text-green-700 font-bold">from transcript</p>
+</div>
+</div><div class="bg-gradient-to-br from-green-50 to-emerald-50/50 border border-green-200 rounded-xl p-5">
+<p class="text-sm leading-6 text-stone-700">Mythos can chain together 3-5 different vulnerabilities to create novel sophisticated attacks</p>
+<div class="flex items-center gap-1.5 mt-3">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+<p class="text-[10px] uppercase tracking-widest text-green-700 font-bold">from transcript</p>
+</div>
+</div><div class="bg-gradient-to-br from-green-50 to-emerald-50/50 border border-green-200 rounded-xl p-5">
+<p class="text-sm leading-6 text-stone-700"><a class="entity-link" href="/companies/anthropic/">Anthropic</a> is providing $100M in compute credits for defensive hardening via Project Glass Wing</p>
+<div class="flex items-center gap-1.5 mt-3">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+<p class="text-[10px] uppercase tracking-widest text-green-700 font-bold">from transcript</p>
+</div>
+</div></div>
+</section>
+<section class="mb-12 bg-gradient-to-br from-orange-50 to-amber-50/50 border border-orange-200 rounded-2xl p-8">
+<div class="flex items-center gap-2 mb-4">
+<svg class="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+<h2 class="text-[11px] uppercase tracking-[0.15em] text-orange-700 font-bold">Contrarian Take</h2>
+</div>
 <p class="leading-7 text-stone-700">The responsible AI narrative now flips: the most powerful models should NOT be released, they should be controlled by defensive consortiums. <a class="entity-link" href="/companies/anthropic/">Anthropic</a>&#x27;s move is not anti-competitive - it&#x27;s a necessary acknowledgment that some capabilities are civilization-level risks. The concern is not that Anthropic has a cyber-weapon, it&#x27;s that other labs will race to build the same capability. Open release of frontier models that can break digital infrastructure is now the irresponsible path.</p>
 </section>
-<section class="mb-10">
-<h2 class="headline text-2xl italic mb-4">Operator Playbook</h2>
-<ol class="list-decimal pl-6 space-y-3"><li class="leading-7">Audit all critical infrastructure for 10-30 year old software dependencies vulnerable to AI exploit-finding</li><li class="leading-7">Get your infrastructure into a major hardening consortium if you&#x27;re important enough</li><li class="leading-7">Assume adversaries will have access to frontier exploit-finding models within 6-12 months</li><li class="leading-7">Plan defensive posture against AI-generated zero-day chains, not single CVEs</li></ol>
+<section class="mb-12">
+<div class="flex items-center gap-2 mb-5">
+<span class="w-2 h-2 rounded-full bg-stone-800"></span>
+<h2 class="text-[11px] uppercase tracking-[0.15em] text-stone-600 font-bold">Operator Playbook</h2>
+</div>
+<div class="space-y-4"><div class="flex gap-4 items-start">
+<span class="shrink-0 w-8 h-8 rounded-xl bg-stone-900 text-white flex items-center justify-center text-sm font-bold">1</span>
+<p class="leading-7 text-stone-700 pt-1">Audit all critical infrastructure for 10-30 year old software dependencies vulnerable to AI exploit-finding</p>
+</div><div class="flex gap-4 items-start">
+<span class="shrink-0 w-8 h-8 rounded-xl bg-stone-900 text-white flex items-center justify-center text-sm font-bold">2</span>
+<p class="leading-7 text-stone-700 pt-1">Get your infrastructure into a major hardening consortium if you&#x27;re important enough</p>
+</div><div class="flex gap-4 items-start">
+<span class="shrink-0 w-8 h-8 rounded-xl bg-stone-900 text-white flex items-center justify-center text-sm font-bold">3</span>
+<p class="leading-7 text-stone-700 pt-1">Assume adversaries will have access to frontier exploit-finding models within 6-12 months</p>
+</div><div class="flex gap-4 items-start">
+<span class="shrink-0 w-8 h-8 rounded-xl bg-stone-900 text-white flex items-center justify-center text-sm font-bold">4</span>
+<p class="leading-7 text-stone-700 pt-1">Plan defensive posture against AI-generated zero-day chains, not single CVEs</p>
+</div></div>
 </section>
-<div class="mb-10 border-l-4 border-green-500 pl-6 py-2">
-<p class="text-[10px] uppercase tracking-widest text-green-700 mb-2 font-bold">One-Line Formula</p>
+<div class="mb-12 bg-gradient-to-r from-green-50 via-emerald-50 to-teal-50 border border-green-200 rounded-2xl p-8">
+<p class="text-[10px] uppercase tracking-widest text-green-700 mb-3 font-bold flex items-center gap-2">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+One-Line Formula
+</p>
 <p class="headline italic text-xl leading-relaxed text-stone-800">Frontier AI capabilities for breaking infrastructure must be restricted to defensive consortiums, not released publicly.</p>
 </div>
-<section class="mb-10">
-<h2 class="headline text-2xl italic mb-4">Entity Graph</h2>
+<section class="mb-12 bg-white rounded-2xl p-6 border border-stone-200 shadow-sm">
+<div class="flex items-center gap-2 mb-4">
+<svg class="w-4 h-4 text-stone-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+<h2 class="text-[11px] uppercase tracking-[0.15em] text-stone-500 font-bold">Entity Graph</h2>
+</div>
 <div class="flex flex-wrap gap-2"><a href="/companies/anthropic/" class="tag tag-company">Anthropic</a> <span class="tag tag-company opacity-60 cursor-default" title="Mentioned only — no dedicated page">NVIDIA</span> <span class="tag tag-company opacity-60 cursor-default" title="Mentioned only — no dedicated page">AWS</span> <span class="tag tag-company opacity-60 cursor-default" title="Mentioned only — no dedicated page">Azure (Microsoft)</span> <span class="tag tag-concept opacity-60 cursor-default" title="Mentioned only — no dedicated page">Mythos Model</span> <span class="tag tag-concept opacity-60 cursor-default" title="Mentioned only — no dedicated page">Zero-Day Exploit Finding</span> <span class="tag tag-concept opacity-60 cursor-default" title="Mentioned only — no dedicated page">Project Glass Wing</span> <span class="tag tag-concept opacity-60 cursor-default" title="Mentioned only — no dedicated page">Two-Tier AI Access Economy</span></div>
 </section>
-<section class="mt-10">
-<h2 class="headline text-2xl italic mb-4">Discussed in this episode</h2>
-<div class="grid md:grid-cols-3 gap-3"><div class="flex items-center gap-3 bg-stone-50 rounded-xl px-4 py-3 border border-stone-200"><div class="w-12 h-12 text-sm rounded-full bg-gradient-to-br from-stone-100 to-stone-200 border border-stone-300 flex items-center justify-center font-serif italic font-bold text-stone-600 shrink-0">DA</div><div><p class="font-semibold text-sm">Daario Amodei</p><p class="text-[10px] uppercase tracking-widest text-stone-500 mt-0.5">Discussed &middot; Leadership at Anthropic</p></div></div></div>
-<p class="text-xs text-stone-500 mt-3 italic">These individuals are referenced in the conversation but did not appear as guests.</p>
+<section class="mt-12">
+<div class="flex items-center gap-2 mb-4">
+<span class="w-2 h-2 rounded-full bg-stone-300"></span>
+<h2 class="text-[11px] uppercase tracking-[0.15em] text-stone-400 font-bold">Also Referenced</h2>
+</div>
+<div class="grid md:grid-cols-3 gap-3"><div class="flex items-center gap-3 bg-white rounded-xl px-4 py-3 border border-stone-200"><div class="w-12 h-12 text-sm rounded-full bg-gradient-to-br from-stone-100 to-stone-200 border border-stone-300 flex items-center justify-center font-serif italic font-bold text-stone-600 shrink-0">DA</div><div><p class="font-semibold text-sm">Daario Amodei</p><p class="text-[10px] uppercase tracking-widest text-stone-400 mt-0.5">Discussed &middot; Leadership at Anthropic</p></div></div></div>
+<p class="text-[11px] text-stone-400 mt-3">These individuals are referenced in the conversation but did not appear as guests.</p>
 </section>
 </main>
-<footer class="border-t border-stone-200 bg-[#f5f3ee] py-10 mt-20">
-<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-6">
-<div><p class="headline text-sm font-black mb-1">TWiST Intelligence Library</p>
-<p class="text-[11px] tracking-wide text-stone-500 max-w-md leading-relaxed">A pilot knowledge graph compiled from <em>This Week in Startups</em>. This public slice covers a curated set of recent episodes; the full archive compilation is ongoing.</p></div>
-<div class="flex flex-wrap gap-x-6 gap-y-2 text-xs tracking-widest uppercase text-stone-500"><a href="/">Library</a><a href="/episodes/">Episodes</a><a href="/founders/">Founders</a><a href="/companies/">Companies</a><a href="/vcs/">VCs</a><a href="/concepts/">Concepts</a><a href="/how-it-works/">How it works</a></div>
+<footer class="border-t border-stone-200 bg-gradient-to-b from-[#f5f3ee] to-[#eceae4] py-14 mt-24">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between gap-8 mb-10">
+<div class="max-w-md">
+<div class="flex items-center gap-2 mb-3">
+<span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-green-600 text-white text-xs font-black" style="font-family:Inter,sans-serif">T</span>
+<p class="headline text-sm font-black">TWiST Intelligence Library</p>
+</div>
+<p class="text-[12px] text-stone-500 leading-relaxed">A structured knowledge graph of the venture ecosystem, compiled from This Week in Startups.</p>
+<p class="text-[11px] text-stone-400 mt-2">This is a curated public slice covering 10 recent episodes. The full archive compilation is ongoing.</p>
+</div>
+<div class="flex flex-wrap gap-x-7 gap-y-3 text-xs tracking-widest uppercase text-stone-500 items-start"><a href="/" class="hover:text-stone-800 transition-colors">Library</a><a href="/episodes/" class="hover:text-stone-800 transition-colors">Episodes</a><a href="/founders/" class="hover:text-stone-800 transition-colors">Founders</a><a href="/companies/" class="hover:text-stone-800 transition-colors">Companies</a><a href="/vcs/" class="hover:text-stone-800 transition-colors">VCs</a><a href="/concepts/" class="hover:text-stone-800 transition-colors">Concepts</a><a href="/how-it-works/" class="hover:text-stone-800 transition-colors">How it works</a></div>
+</div>
+<div class="border-t border-stone-300/50 pt-6 flex flex-col sm:flex-row justify-between gap-4 text-[11px] text-stone-400">
+<p>Compiled with structured extraction from <em>This Week in Startups</em> transcripts.</p>
+<p>Pilot v0.1 &middot; Built with care.</p>
+</div>
 </div></footer>
 </body></html>
